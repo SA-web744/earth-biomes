@@ -348,7 +348,7 @@ nav{display:flex;align-items:center;gap:4px;overflow-x:auto;max-width:100%}
 .pill{background:#f3f6fb;color:#0a0e18;border:0;border-radius:999px;padding:9px 18px;font-weight:500;white-space:nowrap;margin-inline-start:6px}
 .pill:hover{background:#fff}
 main{flex:1;position:relative;z-index:1}
-.view{padding:16px 24px 20px;animation:fade .35s ease}
+.view{padding:16px 24px 20px;animation:fade .18s ease}
 .view[hidden]{display:none!important}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .window{max-width:1000px;margin:14px auto 0;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:#0d0f15;overflow:hidden;box-shadow:0 0 0 1px rgba(34,230,255,.05),0 20px 60px rgba(0,0,0,.5)}
@@ -1361,6 +1361,7 @@ async function createGlobe(host, hooks = {}) {
   subscribe(sync);
   sync();
   let time = 0;
+  let lastFrame = 0;
   const up = new THREE.Vector3(0, 1, 0);
   const idQ = new THREE.Quaternion();
   const curDirection = new THREE.Vector3();
@@ -1368,7 +1369,9 @@ async function createGlobe(host, hooks = {}) {
   const lightRight = new THREE.Vector3();
   const lightOffset = new THREE.Vector3(0, 2, 0);
   const turnQuaternion = new THREE.Quaternion();
-  function animate() {
+  function animate(now = 0) {
+    if (now - lastFrame < 33) return;
+    lastFrame = now;
     time += 0.01;
     if (autoSpin) earthGroup.rotation.y += 2e-3;
     clouds.rotation.y += 5e-4;
@@ -1699,7 +1702,7 @@ function createMap(host) {
     drawGraticule(b, W, H);
   }
   function draw() {
-    if (!W) return;
+    if (!W || !host.getClientRects().length) return;
     const ctx = canvas.getContext("2d");
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
