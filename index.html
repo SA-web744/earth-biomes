@@ -535,7 +535,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   </ul>
 
   <h3>منبع آموزشی اطلاعات زیست‌بوم‌ها</h3>
-  <p>توجه: ممکن است برخی اطلاعات در درس ۵ کتاب مطالعات نهم وجود نداشته باشند. مرزها نیز تقریبی‌اند.</p>
+  <p>توجه: ممکن است برخی اطلاعات در درس 5 کتاب مطالعات نهم وجود نداشته باشند. مرزها نیز تقریبی‌اند.</p>
 
   <h3>جانوران در خطر انقراض و منقرض‌شده</h3>
   <p>برای هر زیست‌بوم حداکثر دو گونه در هر دسته نمایش داده می‌شود و فقط نام نشان داده می‌شود. فهرست‌ها به‌صورت دستی از دانش عمومی دربارهٔ فهرست سرخ IUCN گردآوری شده‌اند. اتصال زنده‌ای به IUCN یا هیچ پایگاه دیگری وجود ندارد و وضعیت حفاظتی ممکن است تغییر کرده باشد. برخی موارد منقرض‌شده زیرگونه یا گونه‌های پیش‌ازتاریخ‌اند.</p>
@@ -1401,7 +1401,9 @@ async function createGlobe(host, hooks = {}) {
     if (cw < 10 || ch < 10) return;
     camera.aspect = cw / ch;
     camera.updateProjectionMatrix();
-    renderer.setSize(cw, ch);
+    renderer.setSize(cw, ch, false);
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
   }
   if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
   window.addEventListener("resize", resize);
