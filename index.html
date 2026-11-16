@@ -1143,8 +1143,8 @@ async function createGlobe(host, hooks = {}) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1e3);
   camera.position.set(0, 0, 3);
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1));
   renderer.setSize(w, h);
   renderer.shadowMap.enabled = false;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -1153,7 +1153,7 @@ async function createGlobe(host, hooks = {}) {
   host.appendChild(canvas);
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
-  controls.dampingFactor = 0.05;
+  controls.dampingFactor = 0.08;
   controls.minDistance = 1.5;
   controls.maxDistance = 10;
   controls.enablePan = false;
@@ -1447,7 +1447,7 @@ var init_globe = __esm({
     toTex = (img, srgb) => {
       const t = new THREE.Texture(img);
       if (srgb) t.colorSpace = THREE.SRGBColorSpace;
-      t.anisotropy = 8;
+      t.anisotropy = 4;
       t.needsUpdate = true;
       return t;
     };
