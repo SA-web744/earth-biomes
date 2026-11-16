@@ -472,7 +472,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
     <div class="stage glass">
       <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>کرهٔ زمین سه‌بعدی</strong><span class="sp"></span><button class="tool" type="button" data-nav="map">نقشهٔ دوبعدی</button></div>
       <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
-      <div class="canvas-host" id="globe-host" style="overflow:hidden"><canvas data-engine="three.js r170" width="1454" height="681" style="display: block; width: 1454px; height: 681px; touch-action: none;"></canvas></div>
+      <div class="canvas-host" id="globe-host" style="overflow:hidden"></div>
       <div class="tools">
         <button class="tool" id="g-in" type="button" aria-label="بزرگ‌نمایی">+</button>
         <button class="tool" id="g-out" type="button" aria-label="کوچک‌نمایی">−</button>
@@ -1402,8 +1402,12 @@ async function createGlobe(host, hooks = {}) {
     camera.aspect = cw / ch;
     camera.updateProjectionMatrix();
     renderer.setSize(cw, ch, false);
+    canvas.style.position = "absolute";
+    canvas.style.inset = "0";
+    canvas.style.display = "block";
     canvas.style.width = "100%";
     canvas.style.height = "100%";
+    canvas.style.touchAction = "none";
   }
   if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
   window.addEventListener("resize", resize);
