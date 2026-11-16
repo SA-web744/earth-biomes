@@ -1144,10 +1144,9 @@ async function createGlobe(host, hooks = {}) {
   const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1e3);
   camera.position.set(0, 0, 3);
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   renderer.setSize(w, h);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.enabled = false;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.2;
   const canvas = renderer.domElement;
@@ -1191,10 +1190,8 @@ async function createGlobe(host, hooks = {}) {
     shininess: 100,
     specular: new THREE.Color(3355443)
   });
-  const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 128, 128), earthMaterial);
+  const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 96), earthMaterial);
   earth.name = "earth";
-  earth.castShadow = true;
-  earth.receiveShadow = true;
   earthGroup.add(earth);
   const ovCanvas = document.createElement("canvas");
   ovCanvas.width = 2048;
@@ -1202,7 +1199,7 @@ async function createGlobe(host, hooks = {}) {
   const ovTex = new THREE.CanvasTexture(ovCanvas);
   ovTex.colorSpace = THREE.SRGBColorSpace;
   const overlay = new THREE.Mesh(
-    new THREE.SphereGeometry(1.004, 128, 64),
+    new THREE.SphereGeometry(1.004, 96, 48),
     new THREE.MeshLambertMaterial({ map: ovTex, transparent: true, depthWrite: false })
   );
   overlay.name = "biomeOverlay";
@@ -1366,23 +1363,29 @@ async function createGlobe(host, hooks = {}) {
   let time = 0;
   const up = new THREE.Vector3(0, 1, 0);
   const idQ = new THREE.Quaternion();
+  const curDirection = new THREE.Vector3();
+  const lightDirection = new THREE.Vector3();
+  const lightRight = new THREE.Vector3();
+  const lightOffset = new THREE.Vector3(0, 2, 0);
+  const turnQuaternion = new THREE.Quaternion();
   function animate() {
     time += 0.01;
     if (autoSpin) earthGroup.rotation.y += 2e-3;
     clouds.rotation.y += 5e-4;
     if (focus) {
-      const cur = camera.position.clone().normalize();
+      const cur = curDirection.copy(camera.position).normalize();
       if (cur.angleTo(focus) < 0.01) focus = null;
       else {
-        const q = new THREE.Quaternion().setFromUnitVectors(cur, focus);
-        camera.position.applyQuaternion(idQ.clone().slerp(q, 0.1));
+        turnQuaternion.setFromUnitVectors(curDirection.copy(camera.position).normalize(), focus);
+        idQ.slerp(turnQuaternion, 0.1);
+        camera.position.applyQuaternion(idQ);
         const len = camera.position.length();
         camera.position.setLength(THREE.MathUtils.lerp(len, Math.min(len, 3.2), 0.1));
       }
     }
-    const d = camera.position.clone().normalize();
-    const right = d.clone().cross(up).normalize();
-    sunLight.position.copy(d).multiplyScalar(5).add(right.multiplyScalar(3)).add(new THREE.Vector3(0, 2, 0));
+    const d = lightDirection.copy(camera.position).normalize();
+    const right = lightRight.copy(d).cross(up).normalize();
+    sunLight.position.copy(d).multiplyScalar(5).addScaledVector(right, 3).add(lightOffset);
     atmosphereMaterial.uniforms.lightDirection.value.copy(sunLight.position).normalize();
     starsMaterial.opacity = 0.6 + Math.sin(time * 2) * 0.2;
     if (marker.visible) {
