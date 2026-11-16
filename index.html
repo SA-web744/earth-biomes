@@ -476,7 +476,6 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
       <div class="tools">
         <button class="tool" id="g-in" type="button" aria-label="بزرگ‌نمایی">+</button>
         <button class="tool" id="g-out" type="button" aria-label="کوچک‌نمایی">−</button>
-        <button class="tool" id="g-spin" type="button" aria-label="چرخش خودکار" style="font-size:14px">⟳</button>
       </div>
       <div class="hint">برای انتخاب نقطه، روی کره بزنید یا لمس کنید</div>
       <div class="msg" id="g-msg" hidden=""><div id="g-msg-text">در حال بارگذاری کرهٔ زمین…</div><div class="row2" id="g-msg-btns" hidden=""><button class="tool primary" id="g-retry" type="button">تلاش دوباره</button><button class="tool" type="button" data-nav="map">رفتن به نقشهٔ دوبعدی</button><button class="tool" type="button" data-nav="command">مرکز فرماندهی</button></div></div>
@@ -535,7 +534,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   </ul>
 
   <h3>منبع آموزشی اطلاعات زیست‌بوم‌ها</h3>
-  <p>توجه: ممکن است برخی اطلاعات در درس 5 کتاب مطالعات نهم وجود نداشته باشند. مرزها نیز تقریبی‌اند.</p>
+  <p>توجه: برخی اطلاعات ممکن است در درس 5 مطالعات اجتماعی نهم وجود نداشته باشند. مرز ها نیز تقریبی اند.</p>
 
   <h3>جانوران در خطر انقراض و منقرض‌شده</h3>
   <p>برای هر زیست‌بوم حداکثر دو گونه در هر دسته نمایش داده می‌شود و فقط نام نشان داده می‌شود. فهرست‌ها به‌صورت دستی از دانش عمومی دربارهٔ فهرست سرخ IUCN گردآوری شده‌اند. اتصال زنده‌ای به IUCN یا هیچ پایگاه دیگری وجود ندارد و وضعیت حفاظتی ممکن است تغییر کرده باشد. برخی موارد منقرض‌شده زیرگونه یا گونه‌های پیش‌ازتاریخ‌اند.</p>
@@ -1930,7 +1929,6 @@ document.addEventListener("click", (e) => {
 });
 $("#g-in").addEventListener("click", () => globe && globe.zoom(0.8));
 $("#g-out").addEventListener("click", () => globe && globe.zoom(1.25));
-$("#g-spin").addEventListener("click", () => globe && globe.toggleSpin());
 $("#g-retry").addEventListener("click", () => {
   globe = null;
   enterGlobe();
