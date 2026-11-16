@@ -1417,7 +1417,7 @@ async function createGlobe(host, hooks = {}) {
       ring.scale.setScalar(1 + k * 1.2);
       ring.material.opacity = 1 - k;
     }
-    controls.update();
+    if (autoSpin) controls.update();
     renderer.render(scene, camera);
   }
   function resize() {
