@@ -1369,18 +1369,21 @@ async function createGlobe(host, hooks = {}) {
   const lightRight = new THREE.Vector3();
   const lightOffset = new THREE.Vector3(0, 2, 0);
   const turnQuaternion = new THREE.Quaternion();
+  let previousFrameTime = 0;
   function animate(now = 0) {
     if (now - lastFrame < 33) return;
     lastFrame = now;
-    time += 0.01;
-    if (autoSpin) earthGroup.rotation.y += 2e-3;
+    const delta = previousFrameTime ? Math.min((now - previousFrameTime) / 1000, 0.05) : 1 / 30;
+    previousFrameTime = now;
+    time += delta;
+    if (autoSpin) earthGroup.rotation.y += 0.12 * delta;
     clouds.rotation.y += 5e-4;
     if (focus) {
       const cur = curDirection.copy(camera.position).normalize();
       if (cur.angleTo(focus) < 0.01) focus = null;
       else {
         turnQuaternion.setFromUnitVectors(curDirection.copy(camera.position).normalize(), focus);
-        idQ.slerp(turnQuaternion, 0.1);
+        idQ.identity().slerp(turnQuaternion, 0.1);
         camera.position.applyQuaternion(idQ);
         const len = camera.position.length();
         camera.position.setLength(THREE.MathUtils.lerp(len, Math.min(len, 3.2), 0.1));
@@ -1420,10 +1423,20 @@ async function createGlobe(host, hooks = {}) {
   return {
     start() {
       resize();
+      previousFrameTime = 0;
+      lastFrame = 0;
+      controls.enabled = true;
+      controls.autoRotate = autoSpin;
       renderer.setAnimationLoop(animate);
     },
     stop() {
       renderer.setAnimationLoop(null);
+      // Clear any unfinished OrbitControls damping so it cannot jump on re-entry.
+      controls.enableDamping = false;
+      controls.update();
+      controls.enableDamping = true;
+      previousFrameTime = 0;
+      lastFrame = 0;
     },
     resize,
     zoom(f) {
