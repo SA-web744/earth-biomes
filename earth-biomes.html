@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://omma.build/p/earth-biomes-interactive-command-center-aby4pc -->
+<html lang="fa" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--<base href="/p/earth-biomes-interactive-command-center-aby4pc/">--><base href=".">
+  <title>Earth Biomes Interactive Command Center</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Earth Biomes Interactive Command Center — created on Omma">
+    <meta property="og:title" content="Earth Biomes Interactive Command Center">
+    <meta property="og:description" content="Earth Biomes Interactive Command Center — created on Omma">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://omma.build/api/og-image?slug=earth-biomes-interactive-command-center-aby4pc&amp;v=1794590642956">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Earth Biomes Interactive Command Center">
+    <meta name="twitter:description" content="Earth Biomes Interactive Command Center — created on Omma">
+    <meta name="twitter:image" content="https://omma.build/api/og-image?slug=earth-biomes-interactive-command-center-aby4pc&amp;v=1794590642956">
+  <script>window.UPLOADED_3D_MODELS = [];</script>
+  <script>
+window.UPLOADED_IMAGES = [];
+(function() {
+  var imgs = window.UPLOADED_IMAGES || [];
+  if (!imgs.length) return;
+  var lookup = {};
+  imgs.forEach(function(img) {
+    lookup['assets/' + img.name] = img.dataUrl;
+    lookup[img.name] = img.dataUrl;
+    lookup['./' + 'assets/' + img.name] = img.dataUrl;
+  });
+  function resolveAsset(url) {
+    if (typeof url !== 'string') return null;
+    var clean = url.replace(/^\.?\//, '');
+    return lookup[clean] || lookup[url] || null;
+  }
+  var _origFetch = window.fetch;
+  window.fetch = function(url, opts) {
+    var resolved = resolveAsset(typeof url === 'string' ? url : (url && url.url) || '');
+    if (resolved) return fetch(resolved, opts);
+    return _origFetch.apply(this, arguments);
+  };
+  var _origXHROpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method, url) {
+    var resolved = resolveAsset(url);
+    if (resolved) arguments[1] = resolved;
+    return _origXHROpen.apply(this, arguments);
+  };
+  var imgSrcDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+  if (imgSrcDesc && imgSrcDesc.set) {
+    Object.defineProperty(HTMLImageElement.prototype, 'src', {
+      set: function(val) {
+        var resolved = resolveAsset(val);
+        imgSrcDesc.set.call(this, resolved || val);
+      },
+      get: imgSrcDesc.get,
+      configurable: true
+    });
+  }
+})();
+</script>
+  <script>window.OMMA_ENV={};</script>
+    <script>(function(){try{
+var KEY='omma_sid_aby4pcpcalk',sid=null;
+try{sid=sessionStorage.getItem(KEY);}catch(e){}
+if(!sid){sid=Math.random().toString(36).slice(2)+Date.now().toString(36);try{sessionStorage.setItem(KEY,sid);}catch(e){}}
+function send(){try{
+var url="https://omma.build"+'/api/track';
+var body=JSON.stringify({chatId:"aby4pcpcalk",sid:sid,path:location.pathname,ref:document.referrer||''});
+if(navigator.sendBeacon){navigator.sendBeacon(url,new Blob([body],{type:'application/json'}));}
+else{fetch(url,{method:'POST',headers:{'content-type':'application/json'},body:body,keepalive:true}).catch(function(){});}
+}catch(e){}}
+send();
+// Re-send on SPA-style navigation so single-page apps still report
+// secondary pageviews. We patch pushState/replaceState (history API
+// mutations don't emit 'popstate' on their own) and listen for back/forward.
+var _ps=history.pushState,_rs=history.replaceState;
+history.pushState=function(){_ps.apply(this,arguments);setTimeout(send,0);};
+history.replaceState=function(){_rs.apply(this,arguments);setTimeout(send,0);};
+addEventListener('popstate',function(){setTimeout(send,0);});
+}catch(e){}})();</script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/",
+      "three/tsl": "https://unpkg.com/three@0.170.0/build/three.tsl.js",
+      "three/webgpu": "https://unpkg.com/three@0.170.0/build/three.webgpu.js"
+    }
+  }
+  </script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مرکز فرماندهی زمین | EARTH COMMAND CENTER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<style>
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlE8WWMmk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlHcWW.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlE8WWMmk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlHcWW.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlE8WWMmk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlHcWW.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlE8WWMmk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlHcWW.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+</style>
+
+<style>
+:root{--bg:#070b14;--glass:rgba(16,24,42,.68);--line:rgba(120,205,255,.2);--cy:#22e6ff;--tx:#e8f0fc;--mu:#8da0c0;--r:18px}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--tx);font-family:'Vazirmatn','Inter',system-ui,sans-serif;min-height:100dvh;display:flex;flex-direction:column;line-height:1.8;font-size:15px}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 75% 0%,rgba(34,230,255,.09),transparent 55%);pointer-events:none;z-index:0}
+button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 24px;border-bottom:1px solid var(--line);background:rgba(7,11,20,.78);backdrop-filter:blur(12px)}
+.brand{background:none;border:0;display:flex;flex-direction:column;align-items:flex-start;padding:0;line-height:1.3;text-align:right}
+.brand-fa{font-weight:700;font-size:17px}
+.brand-en{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.22em;color:var(--cy)}
+nav{display:flex;align-items:center;gap:4px;overflow-x:auto;max-width:100%}
+.link{background:none;border:0;color:var(--mu);padding:7px 12px;border-radius:999px;white-space:nowrap;transition:color .2s}
+.link:hover,.link.active{color:var(--cy)}
+.pill{background:#f3f6fb;color:#0a0e18;border:0;border-radius:999px;padding:9px 18px;font-weight:500;white-space:nowrap;margin-inline-start:6px}
+.pill:hover{background:#fff}
+main{flex:1;position:relative;z-index:1}
+.view{padding:16px 24px 20px;animation:fade .18s ease}
+.view[hidden]{display:none!important}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.window{max-width:1000px;margin:14px auto 0;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:#0d0f15;overflow:hidden;box-shadow:0 0 0 1px rgba(34,230,255,.05),0 20px 60px rgba(0,0,0,.5)}
+.chrome{direction:ltr;display:flex;align-items:center;gap:7px;padding:8px 12px;background:rgba(70,72,92,.85)}
+.dot{width:9px;height:9px;border-radius:50%}
+.tab{margin-inline-start:10px;width:96px;height:10px;border-radius:5px;background:rgba(255,255,255,.22)}
+.urlbar{direction:ltr;margin:0;padding:5px 14px;background:rgba(255,255,255,.12);display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:11px;color:#b9bfd2}
+.urlbar i{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.18)}
+.wbody{padding:44px 26px 34px;text-align:center}
+.wbody h1{margin:0 0 8px;font-size:clamp(30px,5.2vw,54px);font-weight:700;line-height:1.35}
+.wbody .en{font-family:'Inter',sans-serif;letter-spacing:.3em;font-size:12px;color:var(--cy);margin-bottom:14px}
+.sub{color:var(--mu);max-width:660px;margin:0 auto}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:740px;margin:28px auto 0}
+.btn{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);text-align:right;transition:border-color .2s,background .2s}
+.btn b{font-weight:500;font-size:16px}
+.btn small{color:var(--mu);font-size:12px}
+.btn:hover{border-color:var(--cy);background:rgba(34,230,255,.07)}
+.btn.primary{background:#f3f6fb;color:#0a0e18}
+.btn.primary small{color:#4a5368}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:13px}
+.chip:hover,.chip.on{border-color:var(--cy);background:rgba(34,230,255,.1)}
+.chip i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.explore{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;height:calc(100dvh - 130px);min-height:540px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(14px);box-shadow:0 0 0 1px rgba(34,230,255,.04),0 10px 40px rgba(0,0,0,.45)}
+.stage{position:relative;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.bar{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.sp{flex:1}
+.tool{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:5px 12px;font-size:13px}
+.tool:hover{border-color:var(--cy)}
+.tool.primary{background:#f3f6fb;color:#0a0e18;border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line)}
+.legend .chip{font-size:12px;padding:3px 10px}
+.canvas-host{flex:1;position:relative;min-height:0;overflow:auto;display:flex}
+.canvas-host canvas{display:block}
+.map-box{position:relative;margin:auto;direction:ltr;flex:none}
+.map-box canvas{cursor:crosshair;border-radius:8px;border:1px solid var(--line)}
+.pin{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--cy);border:2px solid #fff;pointer-events:none}
+.pin::after{content:'';position:absolute;inset:-11px;border:2px solid var(--cy);border-radius:50%;animation:pulse 1.6s infinite}
+@keyframes pulse{from{transform:scale(.5);opacity:1}to{transform:scale(1.5);opacity:0}}
+.tools{position:absolute;bottom:12px;left:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.tools .tool{width:38px;height:38px;padding:0;font-size:18px}
+.hint{position:absolute;bottom:10px;right:50%;transform:translateX(50%);font-size:12px;color:var(--mu);pointer-events:none;white-space:nowrap;z-index:2}
+.msg{position:absolute;inset:0;z-index:5;display:grid;place-content:center;gap:12px;text-align:center;padding:20px;background:rgba(7,11,20,.9)}
+.msg[hidden]{display:none}
+.msg .row2{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.panel{padding:16px;overflow:auto;min-width:0}
+.sec{margin-bottom:14px}
+.lbl{font-size:12px;color:var(--mu)}.loc{font-size:19px;font-weight:700}
+.coord{font-size:13px;color:var(--cy)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;border:1px solid var(--line);font-weight:700}
+.badge i{width:11px;height:11px;border-radius:50%}
+.badge small{font-family:'Inter',sans-serif;font-weight:400;color:var(--mu);font-size:11px}
+.note{padding:9px 12px;border-radius:12px;border:1px solid rgba(255,196,80,.35);background:rgba(255,196,80,.07);font-size:13px;margin:10px 0}
+.note.info{border-color:var(--line);background:rgba(255,255,255,.03);color:var(--mu)}
+.row{display:grid;grid-template-columns:92px 1fr;gap:8px;padding:6px 0;border-top:1px solid rgba(255,255,255,.07);font-size:13.5px}
+.row dt{color:var(--cy)}
+.row dd{margin:0}
+.animals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.animals h4{margin:0 0 4px;font-size:13px}
+.animals ul{margin:0;padding:0 16px 0 0;font-size:13.5px}
+.animals li small{font-family:'Inter',sans-serif;color:var(--mu);font-style:italic;display:block}
+.cmd{padding:10px 12px;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.fields{display:flex;gap:8px;flex-wrap:wrap;align-items:end}
+.fields label{display:grid;font-size:12px;color:var(--mu)}
+input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:10px;color:var(--tx);padding:6px 10px;width:130px;font-family:inherit;direction:ltr;text-align:left}
+.samples,.quick{display:flex;gap:6px;flex-wrap:wrap}
+.err{color:#ff9a9a;font-size:12.5px;min-height:0}
+.about{max-width:900px;margin:0 auto;padding:22px}
+.about h2{margin:0 0 6px}
+.about h3{color:var(--cy);margin:22px 0 4px;font-size:16px}
+.about p,.about li{color:#c9d6ea}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:6px 10px;text-align:right;vertical-align:top}
+.tbl th{background:rgba(255,255,255,.05)}
+.foot{position:relative;z-index:1;padding:14px 24px 18px;text-align:right;font-size:12.5px;color:var(--mu);border-top:1px solid var(--line);margin-top:8px}
+@media(max-width:900px){
+ .top{padding:8px 12px}.view{padding:12px}
+ .explore{grid-template-columns:1fr;height:auto;min-height:0}
+ .stage{height:68vh;min-height:420px}
+ .panel{overflow:visible}
+ .actions{grid-template-columns:1fr}
+ .wbody{padding:30px 14px 24px}
+ .animals{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <button class="brand" type="button" data-nav="home"><span class="brand-fa">مرکز فرماندهی زمین</span><span class="brand-en">EARTH COMMAND CENTER</span></button>
+  <nav aria-label="ناوبری اصلی">
+    <button class="link active" type="button" data-nav="home">خانه</button>
+    <button class="link" type="button" data-nav="globe">کرهٔ سه‌بعدی</button>
+    <button class="link" type="button" data-nav="map">نقشهٔ دوبعدی</button>
+    <button class="link" type="button" data-nav="about">داده‌ها و منابع</button>
+    <button class="pill" type="button" data-nav="command">ورود به مرکز فرماندهی</button>
+  </nav>
+</header>
+
+<main>
+  <section class="view" data-view="home">
+    <div class="window">
+      <div class="chrome"><span class="dot" style="background:#ff5f6d"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#28c840"></span><span class="tab"></span></div>
+      <div class="urlbar"><i></i><span>earth-command-center</span><i></i></div>
+      <div class="wbody">
+        <div class="en">EARTH COMMAND CENTER</div>
+        <h1>مرکز فرماندهی زمین</h1>
+        <p class="sub">زمین را بگردید، پنج زیست‌بوم بزرگ را روی کره و نقشه پیدا کنید و با ویژگی‌های آب‌وهوایی و جانوران در خطر انقراض و منقرض‌شدهٔ هر کدام آشنا شوید.</p>
+        <div class="actions">
+          <button class="btn" type="button" data-nav="globe"><b>کرهٔ زمین سه‌بعدی</b><small>چرخاندن، بزرگ‌نمایی و انتخاب نقطه</small></button>
+          <button class="btn" type="button" data-nav="map"><b>نقشهٔ دوبعدی</b><small>انتخاب نقطه و برجسته‌شدن زیست‌بوم</small></button>
+          <button class="btn primary" type="button" data-nav="command"><b>ورود به مرکز فرماندهی</b><small>مختصات، نمونه‌ها و اطلاعات کامل</small></button>
+          <button class="btn" type="button" data-nav="about"><b>دربارهٔ داده‌ها و منابع</b><small>روش، دقت و محدودیت‌ها</small></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view explore" data-view="globe" hidden="">
+    <div class="stage glass">
+      <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>کرهٔ زمین سه‌بعدی</strong><span class="sp"></span><button class="tool" type="button" data-nav="map">نقشهٔ دوبعدی</button></div>
+      <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
+      <div class="canvas-host" id="globe-host" style="overflow:hidden"></div>
+      <div class="tools">
+        <button class="tool" id="g-in" type="button" aria-label="بزرگ‌نمایی">+</button>
+        <button class="tool" id="g-out" type="button" aria-label="کوچک‌نمایی">−</button>
+      </div>
+      <div class="hint">برای انتخاب نقطه، روی کره بزنید یا لمس کنید</div>
+      <div class="msg" id="g-msg" hidden=""><div id="g-msg-text">در حال بارگذاری کرهٔ زمین…</div><div class="row2" id="g-msg-btns" hidden=""><button class="tool primary" id="g-retry" type="button">تلاش دوباره</button><button class="tool" type="button" data-nav="map">رفتن به نقشهٔ دوبعدی</button><button class="tool" type="button" data-nav="command">مرکز فرماندهی</button></div></div>
+    </div>
+    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
+  </section>
+
+  <section class="view explore" data-view="map" hidden="">
+    <div class="stage glass">
+      <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>نقشهٔ دوبعدی</strong><span class="sp"></span><button class="tool" type="button" data-nav="globe">کرهٔ سه‌بعدی</button></div>
+      <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
+      <div class="canvas-host" id="map-host"></div>
+    </div>
+    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
+  </section>
+
+  <section class="view explore" data-view="command" hidden="">
+    <div class="stage glass">
+      <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>مرکز فرماندهی</strong></div>
+      <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
+      <form class="cmd" id="cmd-form" novalidate="">
+    <div class="fields">
+      <label>عرض جغرافیایی<input id="cmd-lat" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۳۲"></label>      <label>طول جغرافیایی<input id="cmd-lon" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۵۳"></label>
+      <button class="tool primary" type="submit">رفتن به این نقطه</button>
+    </div>
+    <div class="samples" id="cmd-samples" aria-label="نقاط نمونه"><button type="button" class="chip">توندرای شمال کانادا</button><button type="button" class="chip">تایگای سیبری</button><button type="button" class="chip">آمازون</button><button type="button" class="chip">ساوان شرق آفریقا</button><button type="button" class="chip">صحرای آفریقا</button><button type="button" class="chip">کویر مرکزی ایران</button><button type="button" class="chip">خارج از پنج زیست‌بوم</button></div>
+    <div class="quick">
+      <button class="tool" type="button" data-nav="globe">نمایش روی کرهٔ سه‌بعدی</button>
+      <button class="tool" type="button" data-nav="map">نقشهٔ دوبعدی تمام‌صفحه</button>
+      <button class="tool" type="button" data-nav="about">داده‌ها و منابع</button>
+    </div>
+    <div class="err" id="cmd-err" role="alert"></div></form>
+      <div class="canvas-host" id="cmd-host"></div>
+    </div>
+    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
+  </section>
+
+  <section class="view" data-view="about" hidden="">
+    <div class="about glass" id="about-box">
+  <h2>دربارهٔ داده‌ها و منابع</h2>
+  <p>این صفحه توضیح می‌دهد داده‌های «مرکز فرماندهی زمین» از کجا آمده‌اند، چگونه به‌کار رفته‌اند و چه محدودیت‌هایی دارند.</p>
+
+  <h3>منبع اطلاعات جغرافیایی</h3>
+  <p>تصویر سطح زمین روی کره و نقشه از تصاویر نمونهٔ پروژهٔ three.js بارگذاری می‌شود. اگر بارگذاری ناموفق باشد، نقشهٔ ساده‌ای که از چندضلعی‌های دست‌ساز خود پروژه ساخته می‌شود جایگزین آن خواهد شد. مرز زیست‌بوم‌ها از یک پایگاه داده زنده خوانده نمی‌شود.</p>
+
+  <h3>روش تشخیص پنج زیست‌بوم</h3>
+  <p>مرز هر زیست‌بوم با چند چندضلعی تقریبی (طول و عرض جغرافیایی) به‌صورت دستی تعریف شده است. با انتخاب نقطه، برنامه بررسی می‌کند نقطه درون کدام چندضلعی است. کرهٔ سه‌بعدی و نقشهٔ دوبعدی دقیقاً از همین داده و همین منطق استفاده می‌کنند، پس نتیجهٔ یک نقطه در هر دو یکسان است. زیست‌بوم‌ها فقط پنج مورد هستند: توندرا، تایگا، جنگل‌های بارانی استوایی، ساوان و بیابان.</p>
+
+  <h3>دقت و محدودیت‌ها</h3>
+  <ul>
+    <li>مرزها ساده‌شده و تقریبی‌اند و جایگزین داده‌های رسمی GIS نیستند.</li>
+    <li>برنامه برای نزدیک‌بودن به مرز از آستانهٔ ۱٫۵ درجه استفاده می‌کند. این فاصله معادل کیلومتری ثابتی نیست؛ طول درجهٔ طول جغرافیایی با عرض جغرافیایی تغییر می‌کند و محاسبه نیز تقریبی است.</li>
+    <li>بسیاری از مناطق (مثل نواحی کوهستانی، مناطق گذار و بیابان‌های کوچک) در داده‌ها نیامده‌اند.</li>
+    <li>نام مکان انتخاب‌شده از فهرست کوچکی از نام‌ها و نزدیک‌ترین ناحیه به دست می‌آید و نام دقیق شهر یا کشور نیست.</li>
+    <li>تشخیص نام اقیانوس‌ها و جنوبگان بر پایهٔ شرط‌های سادهٔ مختصاتی است، نه مرز دقیق خشکی‌ها و آب‌ها؛ بنابراین ممکن است در بعضی نقاط، به‌ویژه نزدیک مرز اقیانوس و خشکی یا جنوبگان، اشتباه باشد.</li>
+  </ul>
+
+  <h3>منبع آموزشی اطلاعات زیست‌بوم‌ها</h3>
+  <p>توجه: برخی اطلاعات ممکن است در درس 5 مطالعات اجتماعی نهم وجود نداشته باشند. مرز ها نیز تقریبی اند.</p>
+
+  <h3>جانوران در خطر انقراض و منقرض‌شده</h3>
+  <p>برای هر زیست‌بوم حداکثر دو گونه در هر دسته نمایش داده می‌شود و فقط نام نشان داده می‌شود. فهرست‌ها به‌صورت دستی گردآوری شده‌اند و اتصال زنده‌ای به IUCN یا هیچ پایگاه دیگری وجود ندارد؛ بنابراین وضعیت‌ها ممکن است تغییر کرده باشند و تاریخ ارزیابی هر گونه در برنامه نمایش داده نمی‌شود. برخی موارد منقرض‌شده زیرگونه یا گونه‌های پیش‌ازتاریخ‌اند.</p>
+  <h3>نتیجهٔ بررسی جانوران و وضعیت حفاظتی</h3>
+  <p>نام علمی و وضعیت حفاظتی موارد زنده با منابع در دسترس، به‌ویژه ارزیابی‌های جهانی IUCN، تطبیق داده شده است. این وضعیت‌ها در تاریخ بررسی (نوامبر ۲۰۲۶) چنین‌اند:</p>
+  <ul>
+    <li><b>درنای سیبری (Leucogeranus leucogeranus):</b> در بحران انقراض (CR)؛ این رده در اطلاعات کنوانسیون گونه‌های مهاجر و منابع تخصصی درنای سیبری تأیید می‌شود.</li>
+    <li><b>پرندهٔ ساحلی قاشق‌نوک (Calidris pygmaea):</b> در بحران انقراض (CR)؛ ارزیابی جهانی IUCN در سال ۲۰۱۸.</li>
+    <li><b>ببر آمور (Panthera tigris altaica):</b> نام علمی زیرگونه است. ارزیابی جهانی IUCN برای کل گونهٔ ببر (Panthera tigris) در سال ۲۰۲۱ «در خطر» (EN) است؛ این رده را نباید ارزیابی مستقل زیرگونهٔ آمور معرفی کرد.</li>
+    <li><b>مشک‌گوزن سیبری (Moschus moschiferus):</b> در منابع ثانویه ردهٔ «آسیب‌پذیر» (VU) گزارش شده، اما در این بررسی صفحهٔ ارزیابی جاری و مستقیم IUCN برای تطبیق تاریخ و رده به‌طور مستقل تأیید نشد؛ بنابراین وضعیت آن نیازمند بررسی بیشتر است.</li>
+    <li><b>اورانگوتان سوماترا (Pongo abelii):</b> در بحران انقراض (CR)؛ آخرین ارزیابی جهانیِ نمایش‌داده‌شده در IUCN در ۱۶ اکتبر ۲۰۱۷ انجام شده و نسخهٔ اصلاح‌شده در ۲۰۲۴ منتشر شده است.</li>
+    <li><b>گوریل دشت‌های غربی (Gorilla gorilla):</b> در بحران انقراض (CR)؛ ارزیابی جهانی در ۱ آوریل ۲۰۱۶ انجام و در ۲۰۱۸ منتشر شده است.</li>
+    <li><b>سگ وحشی آفریقایی (Lycaon pictus):</b> در خطر (EN) در آخرین ارزیابی جهانیِ قابل مشاهدهٔ IUCN که در ۲۰۱۲ انجام شده؛ ارزیابی قدیمی است و خود IUCN آن را نیازمند به‌روزرسانی علامت‌گذاری کرده است. صفحهٔ CMS ردهٔ CR را نمایش می‌دهد، اما این با ارزیابی جهانی IUCN یکسان نیست و نباید جایگزین آن شود.</li>
+    <li><b>کرگدن سیاه (Diceros bicornis):</b> در بحران انقراض (CR)؛ ارزیابی جهانی ۲۰۲۰. ردهٔ زیرگونه‌ها ممکن است متفاوت باشد.</li>
+    <li><b>آداکس (Addax nasomaculatus):</b> در بحران انقراض (CR)؛ ارزیابی جهانی ۲۰۱۶. وضعیت آن در فهرست IUCN قدیمی است، هرچند ارزیابی «وضعیت سبز گونه» در ۲۰۲۴ منتشر شده است.</li>
+    <li><b>شتر دوکوهانهٔ وحشی (Camelus ferus):</b> در خطر (EN)، نه در بحران انقراض؛ ارزیابی جهانی جدیدتر در ۳ مه ۲۰۲۵ انجام و در همان سال منتشر شده است. این گونه با شتر دوکوهانهٔ اهلی (Camelus bactrianus) یکی نیست.</li>
+  </ul>
+  <h3>موارد منقرض‌شده و نکات رده‌بندی</h3>
+  <ul>
+    <li><b>وزغ طلایی (Incilius periglenes)</b> و <b>خفاش جزیرهٔ کریسمس (Pipistrellus murrayi):</b> انقراض آن‌ها در ارزیابی‌های IUCN ثبت شده است؛ وزغ طلایی در ارزیابی ۲۰۱۹ و خفاش در به‌روزرسانی ۲۰۱۷ منقرض اعلام شد.</li>
+    <li><b>کواگا (Equus quagga quagga)، شترمرغ عربی (Struthio camelus syriacus) و آنتلوپ بوبال (Alcelaphus buselaphus buselaphus):</b> نام‌های درج‌شده به زیرگونه‌های منقرض‌شده اشاره دارند، نه گونه‌های کاملاً منقرض‌شده؛ گونهٔ مادر آن‌ها هنوز وجود دارد.</li>
+    <li><b>آنتلوپ آبی (Hippotragus leucophaeus):</b> یک گونهٔ مستقل و منقرض‌شده است؛ پژوهش ژنتیکی و دیرینه‌زیستی انقراض آن را حدود سال ۱۸۰۰ میلادی قرار می‌دهد.</li>
+    <li><b>ماموت پشم‌آلو (Mammuthus primigenius)، کرگدن پشم‌آلو (Coelodonta antiquitatis)، گوزن غول‌پیکر ایرلندی (Megaloceros giganteus) و خرس غار (Ursus spelaeus):</b> گونه‌های منقرض‌شدهٔ پیش‌ازتاریخی‌اند؛ این موارد ارزیابی حفاظتی جاری برای گونه‌های زنده نیستند.</li>
+    <li>قرارگرفتن یک جانور در فهرست یک زیست‌بوم، به معنی محدودبودن زیستگاه آن به همان زیست‌بوم نیست؛ بعضی گونه‌ها در چند نوع زیستگاه زندگی می‌کنند.</li>
+  </ul>
+
+  <h3>وضعیت اعتبار داده‌ها</h3>
+  <table class="tbl">
+    <tbody><tr><th>بخش</th><th>نوع داده</th><th>وضعیت</th></tr>
+    <tr><td>مرز زیست‌بوم‌ها</td><td>دستی و تقریبی</td><td>تأیید دقیق نشده</td></tr>
+    <tr><td>توضیحات زیست‌بوم‌ها</td><td>بر پایهٔ متن درس ۵ و اطلاعات تکمیلی</td><td>ممکن است برخی اطلاعات در درس وجود نداشته باشند</td></tr>
+    <tr><td>وضعیت حفاظتی جانوران</td><td>بازبینی با منابع IUCN و منابع تخصصی</td><td>بررسی شد؛ چند مورد قدیمی یا نیازمند تأیید مستقیم‌اند</td></tr>
+    <tr><td>تصویر زمین</td><td>بارگذاری از اینترنت با جایگزین محلی</td><td>فقط برای نمایش</td></tr>
+  </tbody></table>
+  <p style="margin-top:16px"><button class="tool primary" type="button" data-nav="home">بازگشت به صفحهٔ اصلی</button></p></div>
+  </section>
+</main>
+
+<footer class="foot">ستاره اسعدی | نهم2،مدرسه ی حجاب | دبیر: سرکار خانم مهوش معصومی</footer>
+
+<script type="module">
+var __defProp = Object.defineProperty;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+
+// virtual:data/geomath.js
+function pointInPoly(lon, lat, poly) {
+  let c = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const [xi, yi] = poly[i];
+    const [xj, yj] = poly[j];
+    if (yi > lat !== yj > lat && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) c = !c;
+  }
+  return c;
+}
+function edgeDist(lon, lat, poly) {
+  const k = Math.max(0.2, Math.cos(lat * Math.PI / 180));
+  let best = 1e9;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const ax = poly[j][0] * k, ay = poly[j][1];
+    const bx = poly[i][0] * k, by = poly[i][1];
+    const px = lon * k, py = lat;
+    const dx = bx - ax, dy = by - ay;
+    const l2 = dx * dx + dy * dy;
+    let t = l2 ? ((px - ax) * dx + (py - ay) * dy) / l2 : 0;
+    t = Math.max(0, Math.min(1, t));
+    const d = Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
+    if (d < best) best = d;
+  }
+  return best;
+}
+function haversineKm(lon1, lat1, lon2, lat2) {
+  const r = Math.PI / 180;
+  const a = Math.sin((lat2 - lat1) * r / 2) ** 2 + Math.cos(lat1 * r) * Math.cos(lat2 * r) * Math.sin((lon2 - lon1) * r / 2) ** 2;
+  return 12742 * Math.asin(Math.sqrt(a));
+}
+var P, wrapLon;
+var init_geomath = __esm({
+  "virtual:data/geomath.js"() {
+    P = (...n) => {
+      const o = [];
+      for (let i = 0; i < n.length; i += 2) o.push([n[i], n[i + 1]]);
+      return o;
+    };
+    wrapLon = (lon) => ((lon + 180) % 360 + 360) % 360 - 180;
+  }
+});
+
+// virtual:data/biomes.js
+function classify(lon, lat) {
+  lon = wrapLon(lon);
+  let hitId = null;
+  let hitDist = 1e9;
+  for (const id of ORDER) {
+    for (const poly of BIOME_POLYS[id]) {
+      if (pointInPoly(lon, lat, poly)) {
+        hitId = id;
+        hitDist = Math.min(hitDist, edgeDist(lon, lat, poly));
+      }
+    }
+    if (hitId) break;
+  }
+  let nearId = null;
+  let nearDist = 1e9;
+  for (const id of ORDER) {
+    if (id === hitId) continue;
+    for (const poly of BIOME_POLYS[id]) {
+      const d = edgeDist(lon, lat, poly);
+      if (d < nearDist) {
+        nearDist = d;
+        nearId = id;
+      }
+    }
+  }
+  if (hitId) {
+    return { biomeId: hitId, uncertain: hitDist < T || nearDist < T, nearId: nearDist < T ? nearId : null };
+  }
+  return { biomeId: null, uncertain: nearDist < T, nearId: nearDist < T ? nearId : null };
+}
+var BIOME_POLYS, ORDER, T;
+var init_biomes = __esm({
+  "virtual:data/biomes.js"() {
+    init_geomath();
+    BIOME_POLYS = {
+      tundra: [
+        P(-166, 62, -166, 68.5, -156, 71.3, -141, 69.6, -128, 70, -115, 68.8, -104, 68.3, -96, 68, -90, 67, -94, 62, -93, 58.7, -92, 57.2, -98, 59, -105, 62, -112, 64.5, -120, 66, -130, 67.5, -141, 67.5, -150, 67.8, -158, 66.5, -162, 63.5),
+        P(-79, 59, -77, 62.3, -70, 61, -65, 60.3, -62, 58.5, -64, 57.5, -69, 58, -74, 58.2, -78, 57.5),
+        P(-78, 64.5, -72, 67.5, -68, 70, -78, 73, -88, 73.5, -82, 70, -86, 69.5, -79, 66),
+        P(-125, 71.5, -117, 73, -104, 73, -100, 70, -110, 68.5, -118, 70.5),
+        P(-90, 76, -80, 76, -62, 82, -80, 83, -92, 81),
+        P(29, 69.2, 41, 67.8, 44, 68.5, 53, 68.8, 60, 69.8, 68, 72.5, 72, 73.5, 80, 73.5, 87, 75, 100, 77.5, 105, 77.5, 113, 74, 130, 72, 140, 72.5, 150, 71, 160, 70, 170, 69.8, 180, 69, 180, 65.5, 172, 64.5, 165, 66.5, 155, 68, 145, 68.5, 135, 69.5, 125, 70.5, 115, 71.5, 107, 72, 100, 71.5, 92, 70.5, 85, 69.5, 78, 68.5, 72, 67.5, 66, 67, 60, 67.5, 52, 66.5, 46, 66.7, 42, 66.5, 35, 67, 31, 68.5),
+        P(-180, 69, -175, 67.8, -169.7, 66.2, -171, 64.5, -180, 65.2),
+        P(11, 78.5, 17, 80, 27, 80, 22, 77.5, 16, 76.7),
+        P(52, 71, 57, 75, 68, 77, 63, 75, 56, 72)
+      ],
+      taiga: [
+        P(-162, 58.5, -165, 60.5, -162, 63.5, -158, 66.5, -150, 67.8, -141, 67.5, -130, 67.5, -120, 66, -112, 64.5, -105, 62, -98, 59, -92, 57.2, -88, 56.3, -85, 55.2, -82.3, 53.2, -80.5, 51.4, -79, 51.8, -78.8, 54, -79, 56, -78, 57.5, -74, 58.2, -69, 58, -64, 57.5, -62, 57, -60, 55, -57, 53, -57, 51.5, -60, 50.2, -66, 50, -69, 48.5, -75, 47.5, -80, 47.5, -85, 47.8, -90, 48.5, -95, 49.2, -100, 51.5, -106, 53.5, -113, 53.5, -119, 54.5, -125, 55, -131, 56, -135, 59, -141, 60.2, -150, 61.5, -157, 58.5),
+        P(6, 62.5, 12, 66, 17, 68.5, 21, 69.2, 23.5, 66.5, 24.5, 65.3, 21.5, 64.5, 19, 63.2, 17.2, 61.5, 17.5, 60.2, 13, 59.5, 10, 61),
+        P(21, 69.2, 27, 69.2, 31, 68.5, 35, 67, 42, 66.5, 46, 66.7, 52, 66.5, 60, 67.5, 66, 67, 72, 67.5, 78, 68.5, 85, 69.5, 92, 70.5, 100, 71.5, 107, 72, 115, 71.5, 125, 70.5, 135, 69.5, 145, 68.5, 155, 68, 162, 66.3, 160, 62, 155, 59.5, 143, 59.3, 138, 54.5, 140, 52, 134, 48.5, 127, 50, 120, 53, 113, 50.3, 106, 50.5, 98, 50.5, 90, 50.5, 84, 52, 76, 54.5, 67, 56.5, 60, 56.5, 52, 56.5, 45, 57, 38, 57.5, 32, 58, 28, 60, 24, 60.3, 21.5, 61.5, 21.5, 63.5, 24.5, 65.3, 23.5, 66.5)
+      ],
+      rainforest: [
+        P(-77.5, 1, -76, 3, -72, 2, -67, 4.5, -64, 4, -60, 5, -52, 4, -50, 0, -48, -1.5, -48, -5, -52, -7, -56, -9.5, -60, -12, -64, -12.5, -68, -12, -72, -12.5, -74, -9, -76, -6, -77, -3),
+        P(-77.7, 8.2, -76.8, 7, -76.5, 4.5, -77.2, 3.2, -78.8, 1.8, -79.5, 2.2, -77.8, 5.5),
+        P(-89, 17, -85, 16, -83.5, 15, -83.5, 11, -83, 9.5, -85, 10.8, -85.5, 12.5, -86, 14.5, -88, 15.3),
+        P(9.5, 3.5, 13, 2.5, 16, 3.8, 19, 4, 24, 4.5, 28, 4, 30, 2, 30, -2, 28, -4, 26, -6.5, 22, -6, 18, -6, 15, -5, 12.5, -4.5, 11, -3, 9.5, -1, 9, 1),
+        P(-13, 8.5, -8, 4.6, -4, 5.1, 1, 5.8, 5, 6.3, 8.5, 4.5, 9.5, 4.2, 9.5, 6, 6, 7, 1, 7.5, -3, 7.5, -8, 7.8, -11, 8.8),
+        P(49.5, -12.5, 50.3, -15.5, 49.5, -18, 48.5, -21, 47.5, -24.5, 46.8, -24, 47.2, -20, 48.3, -16, 49, -13.5),
+        P(95.5, 5.5, 98, 4, 100, 2, 103, 0, 106, -3, 105.5, -5.5, 102, -4, 99, -1.5, 96.5, 2.5),
+        P(98.5, 8, 100, 6.5, 102, 5, 103.5, 3, 104, 1.5, 102.5, 2, 101, 3.5, 99.5, 5.5, 98.5, 7),
+        P(109, 1.5, 111, 1.5, 114, 4, 117, 6.5, 119, 5, 118, 2, 117.5, 0, 116, -3, 113, -3.5, 110.5, -2.5, 109.5, -0.5),
+        P(132, -1, 135, -3, 138, -2.5, 141, -2.7, 145, -4.5, 147, -6.5, 148, -8.5, 145, -8, 142, -8.5, 139, -8, 137, -5, 134, -4)
+      ],
+      savanna: [
+        P(-16, 13, -12, 14.5, -5, 14.5, 2, 14.5, 10, 13.5, 15, 13, 22, 13, 28, 13, 33, 12.5, 36, 12, 36, 9, 33, 5, 30, 4.5, 28, 4.5, 24, 4.5, 19, 4.2, 16, 4, 13, 2.5, 9.5, 4.5, 9.5, 6, 6, 7, 1, 7.5, -3, 7.5, -8, 7.8, -11, 8.8, -13.5, 10),
+        P(33, 5, 36, 9, 38, 8, 41, 5, 41, -1.5, 40, -4.5, 39, -8.5, 40.5, -11, 40, -15, 35, -17.5, 35, -20, 33, -23.5, 31.5, -25.5, 31, -28, 29, -29.5, 26, -28.5, 22, -27, 20, -24, 18.5, -21, 14, -17.5, 13, -12, 13.5, -8, 15, -5.5, 18, -6, 22, -6, 26, -6.5, 28, -4, 30, -2, 30, 2, 30, 4.5),
+        P(-48, -5, -45, -3, -41, -5, -40, -10, -41, -15, -43, -19, -46, -23, -50, -24, -53, -22, -56, -20, -58, -16, -60, -12, -56, -9.5, -52, -7),
+        P(-73, 7.5, -70, 8, -66, 8.3, -62.5, 8.3, -64, 4.2, -67, 4.5, -72, 2.2, -73, 4),
+        P(126, -14, 129, -13, 132, -11.5, 136, -12, 137, -14.5, 140, -17.5, 141.5, -12.5, 143.5, -14.5, 145, -15, 146, -19, 149, -21.5, 150, -23, 149, -26, 148, -27, 146, -24, 143, -23, 140, -22, 137, -20, 133, -19, 129, -18, 126, -17.5, 124, -16.5)
+      ],
+      desert: [
+        P(-17, 21, -16, 24, -13, 27.5, -10, 29, -6, 30.5, -1, 32, 3, 33, 8, 34, 10, 33.5, 11, 32.5, 15, 31, 20, 30.5, 25, 31, 30, 30.5, 32.5, 30, 33, 27.5, 34, 24, 35.5, 22.5, 37, 20, 36, 17, 33, 15.5, 28, 14.5, 22, 14.5, 15, 15, 10, 15.5, 4, 15.5, -2, 16.5, -8, 16.5, -12, 16.5, -16, 16.5),
+        P(35, 29.5, 39, 32, 43, 31, 47, 29.5, 48, 28, 50, 26.5, 51.5, 24.5, 55, 24, 56, 22, 58.5, 20.5, 57, 18.5, 52, 16.5, 47, 15.5, 43.5, 16.5, 42, 19, 40, 21, 38, 24, 36, 27.5),
+        P(78, 40, 83, 41.5, 90, 43, 96, 42.5, 100, 42.5, 105, 43, 110, 43, 114, 43.5, 112, 41, 107, 40, 104, 38.5, 100, 38.5, 94, 39.5, 90, 38, 84, 37.5, 79, 37.5),
+        P(69, 28.5, 71, 28.5, 73.5, 29.5, 75.5, 28, 74, 26, 72.5, 24.5, 70.5, 25.5),
+        P(52, 35, 56, 35.5, 59, 34.5, 60, 31.5, 60, 29.5, 57, 28.5, 56.5, 31, 53, 31.5, 52, 33),
+        P(53, 41, 56, 42, 60, 43, 64, 42, 66, 40, 62, 37.5, 58, 37.5, 54, 38.5),
+        P(-117, 35.5, -114.5, 36, -112, 34.5, -109, 32, -106, 31.5, -104.5, 29, -103, 28, -104.5, 27, -107, 28, -108.5, 29.5, -109.5, 29, -111, 28.5, -113, 31, -114.7, 31.7, -115.5, 32.5, -116.5, 33.5, -117.5, 34),
+        P(-71, -18, -68.5, -19.5, -68, -24, -69, -28, -71, -29, -70.6, -23, -70.2, -19),
+        P(-69.5, -38, -65, -39, -64, -41.5, -66.5, -45.5, -68.5, -49.5, -71, -50, -71, -44, -70.5, -40),
+        P(12, -17, 13.5, -17, 16, -21, 16, -26, 17, -29, 15.5, -28, 14.2, -23, 12.5, -19),
+        P(114, -22, 117, -21, 122, -18.5, 126, -18, 129, -19, 133, -20.5, 137, -22, 140, -23, 142, -26, 142, -29.5, 140, -31.5, 137, -32.5, 134, -32, 130, -31.5, 125, -32.5, 121, -31, 118, -29.5, 115, -27, 114.5, -24)
+      ]
+    };
+    ORDER = ["rainforest", "desert", "savanna", "tundra", "taiga"];
+    T = 1.5;
+  }
+});
+
+// virtual:data/geo.js
+var LAND, SEAS;
+var init_geo = __esm({
+  "virtual:data/geo.js"() {
+    init_geomath();
+    LAND = {
+      northAmerica: P(-168, 66, -162, 70, -156, 71.3, -141, 69.6, -128, 70, -115, 68.5, -95, 68, -90, 69, -85, 69.5, -82, 67, -86, 64, -93, 61, -94, 58, -88, 56, -82, 55, -80, 51.5, -79, 55, -78, 58, -77, 62.5, -72, 61.5, -65, 60, -62, 57, -56, 52, -60, 50, -66, 50, -65, 47, -60, 46, -66, 44, -70, 43, -70, 41.5, -74, 40, -76, 37, -76, 35, -81, 31, -80, 26, -82, 26, -83, 29.5, -85, 30, -89, 30, -90, 29, -94, 29.5, -97, 27, -97.5, 22, -96, 19, -94, 18, -91, 18.5, -90, 21, -87, 21.5, -88, 18, -88, 16, -84, 15.5, -83.5, 11, -81.5, 9, -79.5, 9.5, -77.5, 8.5, -78, 7, -80, 7.5, -83, 8.5, -85.5, 10, -87.5, 13, -91, 14, -94, 16, -97, 16, -101, 17.5, -105.5, 20, -105.5, 23, -108, 25.5, -112.5, 29.5, -114.8, 31.8, -117, 32.5, -120.5, 34.5, -122.5, 37.5, -124, 40.5, -124, 46, -124.5, 48.5, -127, 50.5, -130, 54.5, -134, 58, -140, 59.8, -148, 60.2, -152, 59, -154, 57, -158, 56, -162, 55, -158, 58.5, -162, 59.5, -165, 61, -166, 64),
+      southAmerica: P(-77.5, 8.5, -75, 11, -71.5, 12, -68, 10.5, -62, 10.5, -60, 8.5, -57, 6, -52, 5, -50, 1.5, -50, 0, -44, -2.5, -38, -4, -35, -7, -35, -9, -39, -14, -39, -18, -41, -22, -45, -23.5, -48, -26, -49, -29, -53, -34, -56, -34.5, -58, -38, -62, -39, -65, -41, -64, -42.5, -66, -46, -68, -50, -69, -52.5, -68, -55, -72, -54, -75, -50, -74, -45, -73.5, -38, -71.5, -32, -70.5, -25, -70.2, -18.5, -75, -15, -78, -10, -81, -5, -80, -2.5, -80.5, 0, -79, 1.5, -78, 3.5, -77, 7),
+      africa: P(-17, 21, -16.5, 16, -17.5, 14.7, -16, 12, -13.5, 9.5, -11, 7, -7.5, 4.5, -3, 5, 1, 6, 4, 6.3, 8, 4.5, 9.5, 3.5, 9, 0, 11, -3.5, 12.3, -6, 13.5, -11, 13, -16, 11.8, -17.5, 14.5, -22.5, 15.5, -27, 17.5, -30.5, 18.5, -34.3, 20, -34.8, 25, -34, 28, -32.5, 31, -29.5, 32.5, -26, 35.5, -24, 35, -20, 40, -16.5, 40.5, -11, 39.5, -6, 41, -2, 43, 1, 48, 5, 51, 11.8, 47, 11.2, 43.2, 11.8, 41, 14.5, 38.5, 18, 37, 21, 35, 25, 33, 28, 32.5, 30, 29, 30.8, 25, 31.7, 20, 32.5, 20, 31, 15, 32.2, 11, 33.2, 10.2, 36.5, 8, 37, 3, 36.8, -2, 35.2, -6, 35.8, -9.5, 32, -10, 29, -13, 27.5, -16, 24),
+      eurasia: P(-9, 43.5, -1.8, 43.4, -1.2, 46, -4.5, 48.3, -1.5, 48.7, 1.5, 50.2, 4, 51.5, 8, 53.6, 8.5, 56.5, 10.5, 57.7, 10.5, 55, 13, 54.5, 19, 54.5, 21, 57, 24, 57.5, 24, 59.5, 30, 60, 23, 60, 21.5, 61, 21.5, 63.5, 25, 65.3, 22, 65.7, 18.5, 63, 17, 60.5, 18.5, 59.5, 16.5, 56.5, 13, 55.5, 11, 58.8, 8, 58, 5, 59, 5, 62, 10, 64.5, 14, 67.5, 20, 70, 28, 71, 33, 69.5, 41, 67, 44, 68.5, 53, 68.8, 60, 69.8, 68, 72.5, 72, 73.5, 80, 73.5, 87, 75, 100, 77.5, 105, 77.5, 113, 74, 130, 72, 140, 72.5, 150, 71, 160, 70, 170, 69.8, 180, 69, 180, 65, 178, 64.5, 172, 64.5, 179, 62.5, 170, 60, 164, 59.8, 163, 56, 160, 53, 156.5, 51, 156, 57, 160, 61.5, 155, 59.5, 143, 59.3, 137, 54.5, 141, 53, 140.5, 48, 135, 43.5, 131, 42.5, 129.5, 41, 127.5, 39.5, 129.5, 36, 126.5, 34.5, 126, 37.5, 125, 39.5, 121.5, 40.5, 119, 39, 122, 37, 119.5, 35, 121.5, 32, 122, 29.5, 119.5, 25.5, 116, 22.5, 110.5, 21, 108, 21.5, 106.5, 19.5, 109, 15, 109, 11.5, 105, 8.5, 105, 10.5, 100.5, 13, 99.5, 10, 100.5, 7, 103, 5, 104, 1.5, 101, 2.5, 98.5, 8, 98.5, 13, 97.5, 16.5, 94.5, 16, 94, 19, 91.5, 22.5, 89, 21.8, 86.5, 20, 84.5, 18.5, 80.2, 15.5, 80, 11, 78, 8.5, 76, 10, 73, 17, 72.8, 21, 70, 21, 68.5, 23.5, 66.5, 25.4, 61.5, 25.2, 57, 25.8, 56.5, 27.2, 54, 26.7, 50.5, 29.5, 48.5, 30, 48, 29, 50, 26.5, 51.5, 24.5, 52, 24, 54, 24.5, 56, 26, 56.5, 24.5, 58.5, 23.5, 59.8, 22.5, 58.5, 20.5, 57, 18.8, 52, 16.5, 48, 14, 43.5, 12.7, 42.5, 16, 40, 20, 38, 24, 35, 28, 34.8, 29.5, 34, 31.5, 35.5, 34.5, 36, 36.5, 30, 36.3, 27, 37, 26.5, 39.5, 26.2, 40.5, 24, 40.8, 23, 39.5, 24, 38, 22, 36.5, 21, 38, 19.5, 40, 19, 42, 14, 45, 12.3, 45.3, 12.5, 44, 14, 42, 16, 41.5, 18.5, 40.2, 16, 38, 15.7, 40, 12, 42, 10, 44, 8, 44, 6.5, 43, 3, 43.3, 3, 42, 0.5, 40, -0.5, 38.5, -2, 36.8, -5.5, 36, -9, 37, -9, 38.8),
+      chukotka: P(-180, 69, -175, 67.8, -169.7, 66.2, -171, 64.5, -180, 65.2),
+      australia: P(114, -22, 114, -26, 115, -30, 115, -34, 118, -35, 123, -34, 129, -31.5, 134, -32.5, 138, -35, 140, -38, 144, -38.5, 147, -38, 150, -37, 151, -33, 153, -28, 153, -25, 150, -22, 146, -19, 145, -15, 143.5, -14, 142.5, -10.8, 141.5, -12.5, 141, -16.5, 139, -17.5, 136, -15.5, 137, -12, 135, -12, 132, -11.5, 130, -12.3, 129, -15, 126, -14, 124, -17, 122, -18, 120, -20, 117, -20.5),
+      greenland: P(-73, 78.5, -60, 82, -30, 83.5, -18, 81.5, -20, 76, -22, 70, -30, 68, -40, 65, -43, 60, -48, 61, -53, 66, -55, 70, -60, 76, -68, 76.5),
+      madagascar: P(49.3, -12, 50.5, -15.5, 49.7, -17.5, 49.2, -20, 47.5, -25, 45, -25.3, 43.5, -23, 44.2, -20, 44, -17, 46.5, -15.5, 48, -13.5),
+      britain: P(-5.5, 50, 1.5, 51, 1.7, 52.8, -0.5, 54, -2, 56, -2, 57.6, -3.5, 58.6, -5, 58.5, -6, 56.5, -5, 55, -3, 54.5, -4.5, 53, -5, 51.7),
+      ireland: P(-10, 52, -6, 52, -6, 54.5, -8, 55.2, -10, 54),
+      iceland: P(-24, 64.5, -22, 63.4, -18, 63.4, -14, 64.5, -15, 66, -20, 66.4),
+      honshu: P(130.5, 31, 132, 33.8, 135, 33.5, 140, 35.5, 142, 39.5, 141.5, 41.5, 140, 40, 139.5, 38, 136.5, 37, 133, 35.5, 130.5, 34),
+      hokkaido: P(140, 42, 142, 45.5, 145, 43.5, 143.5, 42),
+      sumatra: P(95.5, 5.5, 98, 4, 100, 2, 103, 0, 106, -3, 105.5, -5.8, 102, -4, 99, -1.5, 96, 2.5),
+      java: P(105.5, -6.5, 108, -6.3, 114.5, -7.8, 114.5, -8.7, 108, -7.8, 105.5, -7),
+      borneo: P(109, 1.5, 111, 1.5, 114, 4, 117, 6.5, 119, 5, 118, 2, 117.5, 0, 116, -3, 113, -3.5, 110.5, -2.8, 109, -1),
+      newGuinea: P(131, -1, 135, -3, 138, -2.5, 141, -2.7, 145, -4.5, 147, -6.5, 148, -8.5, 145, -8, 142, -8.5, 139, -8, 137, -5, 134, -4),
+      newZealandN: P(172.7, -34.5, 175.5, -37, 178.5, -37.8, 175, -41.5, 174.5, -39.5, 173.5, -35.5),
+      newZealandS: P(172.7, -40.5, 174, -41.5, 171, -44.5, 169, -46.5, 166.5, -46, 170, -43, 171.5, -41.5),
+      baffin: P(-78, 64.5, -72, 67.5, -68, 70, -78, 73, -88, 73.5, -82, 70, -86, 69.5, -79, 66),
+      victoria: P(-125, 71.5, -117, 73, -104, 73, -100, 70, -110, 68.5, -118, 70.5),
+      ellesmere: P(-90, 76, -80, 76, -62, 82, -80, 83, -92, 81),
+      svalbard: P(11, 78.5, 17, 80, 27, 80, 22, 77.5, 16, 76.7),      novayaZemlya: P(52, 71, 57, 75, 68, 77, 63, 75, 56, 72),
+      cuba: P(-85, 22, -82, 23.2, -77, 21.7, -74.2, 20.2, -77.5, 19.9, -81, 22.5),
+      srilanka: P(79.8, 9.5, 81.8, 7.5, 81, 6, 80, 6.2, 79.7, 8)
+    };
+    SEAS = [
+      { fa: "\u062F\u0631\u06CC\u0627\u06CC \u0633\u06CC\u0627\u0647", poly: P(28, 41.5, 28, 44, 29.5, 45.5, 31.5, 46.7, 33.5, 46, 33, 45, 35.5, 45.2, 37, 46.5, 39, 47, 38, 44.5, 41.5, 42, 41, 41.2, 36.5, 41.2, 31, 41.1) },
+      { fa: "\u062F\u0631\u06CC\u0627\u06CC \u062E\u0632\u0631", poly: P(47.5, 43, 48.5, 46, 51, 47, 53, 46, 50.5, 44.5, 53, 42, 53, 40, 54, 37.5, 50.5, 37, 49, 38.5, 49, 41, 47.8, 42) }
+    ];
+  }
+});
+
+// virtual:data/places.js
+function oceanName(lon, lat) {
+  if (lat > 66) return "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0645\u0646\u062C\u0645\u062F \u0634\u0645\u0627\u0644\u06CC";
+  if (lat < -60) return "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0645\u0646\u062C\u0645\u062F \u062C\u0646\u0648\u0628\u06CC";
+  if (lon >= 48 && lon <= 57 && lat >= 24 && lat <= 30.5) return "\u062E\u0644\u06CC\u062C \u0641\u0627\u0631\u0633";
+  if (lon > 56 && lon <= 61 && lat >= 22 && lat <= 26.5) return "\u062F\u0631\u06CC\u0627\u06CC \u0639\u0645\u0627\u0646";
+  if (lon >= 33 && lon <= 43 && lat >= 13 && lat <= 28) return "\u062F\u0631\u06CC\u0627\u06CC \u0633\u0631\u062E";
+  if (lon >= -6 && lon <= 36 && lat >= 30 && lat <= 46) return "\u062F\u0631\u06CC\u0627\u06CC \u0645\u062F\u06CC\u062A\u0631\u0627\u0646\u0647";
+  if (lon > 55 && lon < 75 && lat > 8 && lat < 25) return "\u062F\u0631\u06CC\u0627\u06CC \u0639\u0631\u0628";
+  if (lon > -70 && lon <= 20) return lat >= 0 ? "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0627\u0637\u0644\u0633 \u0634\u0645\u0627\u0644\u06CC" : "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0627\u0637\u0644\u0633 \u062C\u0646\u0648\u0628\u06CC";
+  if (lon > 20 && lon < 120 && lat < 30) return "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0647\u0646\u062F";
+  return lat >= 0 ? "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0622\u0631\u0627\u0645 \u0634\u0645\u0627\u0644\u06CC" : "\u0627\u0642\u06CC\u0627\u0646\u0648\u0633 \u0622\u0631\u0627\u0645 \u062C\u0646\u0648\u0628\u06CC";
+}
+function isLand(lon, lat) {
+  if (lat < -68) return true;
+  return Object.values(LAND).some((p) => pointInPoly(lon, lat, p));
+}
+function describe(lon, lat, result) {
+  const sea = SEAS.find((s) => pointInPoly(lon, lat, s.poly));
+  if (sea) return sea.fa;
+  if (!(result && result.biomeId) && !isLand(lon, lat)) return oceanName(lon, lat);
+  if (lat < -68) return "\u062C\u0646\u0648\u0628\u06AF\u0627\u0646";
+  let best = PLACES[0];
+  let bd = 1e12;
+  for (const p of PLACES) {
+    const d = haversineKm(lon, lat, p[1], p[2]);
+    if (d < bd) {
+      bd = d;
+      best = p;
+    }
+  }
+  return `\u0646\u0627\u062D\u06CC\u0647\u0654 \u0646\u0632\u062F\u06CC\u06A9 \u0628\u0647 \xAB${best[0]}\xBB`;
+}
+var PLACES;
+var init_places = __esm({
+  "virtual:data/places.js"() {
+    init_geo();
+    init_geomath();    PLACES = [
+      ["\u0627\u06CC\u0631\u0627\u0646", 53, 32],
+      ["\u062A\u0631\u06A9\u06CC\u0647", 35, 39],
+      ["\u0639\u0631\u0627\u0642", 44, 33],
+      ["\u0633\u0648\u0631\u06CC\u0647", 38, 35],
+      ["\u0639\u0631\u0628\u0633\u062A\u0627\u0646 \u0633\u0639\u0648\u062F\u06CC", 45, 24],
+      ["\u06CC\u0645\u0646", 47, 15.5],
+      ["\u0639\u0645\u0627\u0646", 57, 21],
+      ["\u0627\u0645\u0627\u0631\u0627\u062A", 54, 24],
+      ["\u0645\u0635\u0631", 30, 27],
+      ["\u0644\u06CC\u0628\u06CC", 17, 27],
+      ["\u0627\u0644\u062C\u0632\u0627\u06CC\u0631", 3, 28],
+      ["\u062A\u0648\u0646\u0633", 9, 34],
+      ["\u0645\u0631\u0627\u06A9\u0634", -6, 32],
+      ["\u0645\u0627\u0644\u06CC", -3, 17],
+      ["\u0646\u06CC\u062C\u0631", 8, 17],
+      ["\u0686\u0627\u062F", 18, 15],
+      ["\u0633\u0648\u062F\u0627\u0646", 30, 15],
+      ["\u0633\u0648\u062F\u0627\u0646 \u062C\u0646\u0648\u0628\u06CC", 30, 7],
+      ["\u0627\u062A\u06CC\u0648\u067E\u06CC", 40, 9],
+      ["\u0633\u0648\u0645\u0627\u0644\u06CC", 46, 5],
+      ["\u06A9\u0646\u06CC\u0627", 37, 0.5],
+      ["\u0627\u0648\u06AF\u0627\u0646\u062F\u0627", 32, 1.5],
+      ["\u062A\u0627\u0646\u0632\u0627\u0646\u06CC\u0627", 35, -6],
+      ["\u0645\u0648\u0632\u0627\u0645\u0628\u06CC\u06A9", 35, -17],
+      ["\u0632\u06CC\u0645\u0628\u0627\u0628\u0648\u0647", 30, -19],
+      ["\u0632\u0627\u0645\u0628\u06CC\u0627", 27, -14],
+      ["\u062C\u0645\u0647\u0648\u0631\u06CC \u062F\u0645\u0648\u06A9\u0631\u0627\u062A\u06CC\u06A9 \u06A9\u0646\u06AF\u0648", 23, -3],
+      ["\u062C\u0645\u0647\u0648\u0631\u06CC \u06A9\u0646\u06AF\u0648", 15, -1],
+      ["\u06AF\u0627\u0628\u0646", 11.7, -0.8],
+      ["\u06A9\u0627\u0645\u0631\u0648\u0646", 12.5, 5.5],
+      ["\u062C\u0645\u0647\u0648\u0631\u06CC \u0622\u0641\u0631\u06CC\u0642\u0627\u06CC \u0645\u0631\u06A9\u0632\u06CC", 21, 6.5],
+      ["\u0646\u06CC\u062C\u0631\u06CC\u0647", 8, 9.5],
+      ["\u063A\u0646\u0627", -1, 7.5],
+      ["\u0633\u0627\u062D\u0644 \u0639\u0627\u062C", -5.5, 7.5],
+      ["\u06AF\u06CC\u0646\u0647", -11, 10.5],
+      ["\u0633\u0646\u06AF\u0627\u0644", -14.5, 14.5],
+      ["\u0622\u0646\u06AF\u0648\u0644\u0627", 17.5, -12],
+      ["\u0646\u0627\u0645\u06CC\u0628\u06CC\u0627", 17, -22],
+      ["\u0628\u0648\u062A\u0633\u0648\u0627\u0646\u0627", 24, -22],
+      ["\u0622\u0641\u0631\u06CC\u0642\u0627\u06CC \u062C\u0646\u0648\u0628\u06CC", 25, -29],
+      ["\u0645\u0627\u062F\u0627\u06AF\u0627\u0633\u06A9\u0627\u0631", 47, -19],
+      ["\u0631\u0648\u0633\u06CC\u0647\u0654 \u0627\u0631\u0648\u067E\u0627\u06CC\u06CC", 40, 58],
+      ["\u0633\u06CC\u0628\u0631\u06CC \u063A\u0631\u0628\u06CC", 75, 62],
+      ["\u0633\u06CC\u0628\u0631\u06CC \u0645\u0631\u06A9\u0632\u06CC", 100, 65],
+      ["\u0633\u06CC\u0628\u0631\u06CC \u0634\u0631\u0642\u06CC", 130, 64],
+      ["\u06A9\u0627\u0645\u0686\u0627\u062A\u06A9\u0627", 160, 56],
+      ["\u0686\u0648\u06A9\u0648\u062A\u06A9\u0627", 175, 66],
+      ["\u0646\u0631\u0648\u0698", 9, 61],
+      ["\u0633\u0648\u0626\u062F", 16, 62],
+      ["\u0641\u0646\u0644\u0627\u0646\u062F", 26, 64],
+      ["\u0627\u06CC\u0633\u0644\u0646\u062F", -19, 65],
+      ["\u0628\u0631\u06CC\u062A\u0627\u0646\u06CC\u0627", -2, 54],
+      ["\u0641\u0631\u0627\u0646\u0633\u0647", 2, 47],
+      ["\u0627\u0633\u067E\u0627\u0646\u06CC\u0627", -4, 40],
+      ["\u0627\u06CC\u062A\u0627\u0644\u06CC\u0627", 12.5, 42.5],
+      ["\u0622\u0644\u0645\u0627\u0646", 10, 51],
+      ["\u0644\u0647\u0633\u062A\u0627\u0646", 19, 52],
+      ["\u0627\u0648\u06A9\u0631\u0627\u06CC\u0646", 32, 49],
+      ["\u06CC\u0648\u0646\u0627\u0646", 22, 39],
+      ["\u0642\u0632\u0627\u0642\u0633\u062A\u0627\u0646", 68, 48],
+      ["\u062A\u0631\u06A9\u0645\u0646\u0633\u062A\u0627\u0646", 59, 39],
+      ["\u0627\u0632\u0628\u06A9\u0633\u062A\u0627\u0646", 64, 41],
+      ["\u0627\u0641\u063A\u0627\u0646\u0633\u062A\u0627\u0646", 66, 33],
+      ["\u067E\u0627\u06A9\u0633\u062A\u0627\u0646", 69, 30],
+      ["\u0647\u0646\u062F", 78, 22],
+      ["\u0628\u0646\u06AF\u0644\u0627\u062F\u0634", 90, 24],
+      ["\u0645\u06CC\u0627\u0646\u0645\u0627\u0631", 96, 21],
+      ["\u0645\u063A\u0648\u0644\u0633\u062A\u0627\u0646", 104, 46],
+      ["\u0686\u06CC\u0646", 105, 35],
+      ["\u0698\u0627\u067E\u0646", 138, 37],
+      ["\u06A9\u0631\u0647\u0654 \u062C\u0646\u0648\u0628\u06CC", 128, 36],
+      ["\u062A\u0627\u06CC\u0644\u0646\u062F", 101, 15],
+      ["\u0648\u06CC\u062A\u0646\u0627\u0645", 106, 16],
+      ["\u0645\u0627\u0644\u0632\u06CC", 102, 4],
+      ["\u0633\u0648\u0645\u0627\u062A\u0631\u0627", 101, -0.5],
+      ["\u0628\u0648\u0631\u0646\u0626\u0648 (\u06A9\u0627\u0644\u06CC\u0645\u0627\u0646\u062A\u0627\u0646)", 114, 0],
+      ["\u062C\u0627\u0648\u0647", 110, -7.5],
+      ["\u0641\u06CC\u0644\u06CC\u067E\u06CC\u0646", 122, 12],
+      ["\u067E\u0627\u067E\u0648\u0622 \u06AF\u06CC\u0646\u0647\u0654 \u0646\u0648", 143, -6],
+      ["\u0627\u0633\u062A\u0631\u0627\u0644\u06CC\u0627", 134, -25],
+      ["\u0646\u06CC\u0648\u0632\u06CC\u0644\u0646\u062F", 172, -41],
+      ["\u06A9\u0627\u0646\u0627\u062F\u0627", -100, 58],
+      ["\u0622\u0644\u0627\u0633\u06A9\u0627", -152, 64],
+      ["\u0627\u06CC\u0627\u0644\u0627\u062A \u0645\u062A\u062D\u062F\u0647", -98, 39],
+      ["\u0645\u06A9\u0632\u06CC\u06A9", -102, 24],
+      ["\u06AF\u0648\u0627\u062A\u0645\u0627\u0644\u0627", -90.5, 15.5],
+      ["\u06A9\u0627\u0633\u062A\u0627\u0631\u06CC\u06A9\u0627", -84, 10],
+      ["\u067E\u0627\u0646\u0627\u0645\u0627", -80, 8.5],
+      ["\u06A9\u0648\u0628\u0627", -79, 22],
+      ["\u06A9\u0644\u0645\u0628\u06CC\u0627", -73, 4],
+      ["\u0648\u0646\u0632\u0648\u0626\u0644\u0627", -66, 7],
+      ["\u0627\u06A9\u0648\u0627\u062F\u0648\u0631", -78, -1.5],
+      ["\u0628\u0631\u0632\u06CC\u0644", -52, -12],
+      ["\u067E\u0631\u0648", -75, -10],
+      ["\u0628\u0648\u0644\u06CC\u0648\u06CC", -64, -17],
+      ["\u0634\u06CC\u0644\u06CC", -71, -30],
+      ["\u0622\u0631\u0698\u0627\u0646\u062A\u06CC\u0646", -65, -35],
+      ["\u06AF\u0631\u06CC\u0646\u0644\u0646\u062F", -42, 72],
+      ["\u062C\u0646\u0648\u0628\u06AF\u0627\u0646", 0, -80],
+      ["\u0633\u0631\u06CC\u0644\u0627\u0646\u06A9\u0627", 80.7, 7.8]
+    ];
+  }
+});
+
+// virtual:state.js
+function emit() {
+  subs.forEach((fn) => {
+    try {
+      fn(state);
+    } catch (e) {
+      console.error(e);
+    }
+  });
+}
+function selectPoint(lon, lat, source = "map") {
+  lon = wrapLon(lon);
+  lat = Math.max(-90, Math.min(90, lat));
+  const result = classify(lon, lat);
+  state.point = { lon, lat };
+  state.result = result;
+  state.biomeId = result.biomeId;
+  state.place = describe(lon, lat, result);
+  state.source = source;
+  emit();
+}
+function selectBiome(id, source = "ui") {
+  state.point = null;
+  state.result = null;
+  state.biomeId = id;
+  state.place = "";
+  state.source = source;
+  emit();
+}
+function clearSelection() {
+  selectBiome(null, "ui");
+}
+var state, subs, subscribe;
+var init_state = __esm({
+  "virtual:state.js"() {
+    init_biomes();
+    init_places();
+    init_geomath();
+    state = { point: null, result: null, biomeId: null, place: "", source: "" };
+    subs = /* @__PURE__ */ new Set();
+    subscribe = (fn) => {
+      subs.add(fn);
+      return () => subs.delete(fn);
+    };
+  }
+});
+
+// virtual:data/fallback.js
+function drawLand(ctx, w, h) {
+  const X = (lo) => (lo + 180) / 360 * w;
+  const Y = (la) => (90 - la) / 180 * h;
+  const path = (poly) => {
+    ctx.beginPath();
+    poly.forEach(([lo, la], i) => i ? ctx.lineTo(X(lo), Y(la)) : ctx.moveTo(X(lo), Y(la)));
+    ctx.closePath();
+  };
+  ctx.fillStyle = "#0b3a66";
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = "#e8f1f8";
+  ctx.fillRect(0, Y(-70), w, h - Y(-70));
+  Object.entries(LAND).forEach(([name, poly]) => {
+    ctx.fillStyle = name === "greenland" ? "#f2f7fb" : "#a8cc91";
+    path(poly);
+    ctx.fill();
+  });
+  ctx.fillStyle = "#0b3a66";
+  SEAS.forEach((s) => {
+    path(s.poly);
+    ctx.fill();
+  });
+}
+function drawGraticule(ctx, w, h) {
+  ctx.strokeStyle = "rgba(160,220,255,0.16)";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let lo = -180; lo <= 180; lo += 30) {
+    const x = (lo + 180) / 360 * w;
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, h);
+  }
+  for (let la = -60; la <= 60; la += 30) {
+    const y = (90 - la) / 180 * h;
+    ctx.moveTo(0, y);
+    ctx.lineTo(w, y);
+  }
+  ctx.stroke();
+}
+var init_fallback = __esm({
+  "virtual:data/fallback.js"() {
+    init_geo();
+  }
+});
+
+// virtual:data/biomeart.js
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => {    s = s * 1664525 + 1013904223 >>> 0;
+    return s / 4294967296;
+  };
+}
+function paintBiome(ctx, w, h, id) {
+  const polys = BIOME_POLYS[id];
+  const st = STYLE[id];
+  if (!polys || !st) return;
+  const X = (lo) => (lo + 180) / 360 * w;
+  const Y = (la) => (90 - la) / 180 * h;
+  const s = w / 2048;
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  ctx.save();
+  ctx.beginPath();
+  polys.forEach((poly) => {
+    poly.forEach(([lo, la], i) => {
+      const x = X(lo), y = Y(la);
+      x0 = Math.min(x0, x);
+      x1 = Math.max(x1, x);
+      y0 = Math.min(y0, y);
+      y1 = Math.max(y1, y);
+      if (i) ctx.lineTo(x, y);
+      else ctx.moveTo(x, y);
+    });
+    ctx.closePath();
+  });
+  ctx.fillStyle = st.base;
+  ctx.fill();
+  ctx.save();
+  ctx.clip();
+  const rand = rng(11 + id.length * 17);
+  const step = Math.max(4, 9 * s);
+  for (let y = y0; y < y1; y += step) {
+    for (let x = x0; x < x1; x += step) {
+      const px = x + rand() * step, py = y + rand() * step;
+      if (id === "tundra") {
+        ctx.fillStyle = rand() > 0.5 ? "rgba(255,255,255,0.85)" : "rgba(170,215,255,0.6)";
+        ctx.beginPath();
+        ctx.arc(px, py, (0.8 + rand() * 1.4) * Math.max(s, 0.7), 0, 6.283);
+        ctx.fill();
+      } else if (id === "taiga") {
+        const t = Math.max(s, 0.6) * (3 + rand() * 2);
+        ctx.fillStyle = rand() > 0.5 ? "#0d3b24" : "#1c6a40";
+        ctx.beginPath();
+        ctx.moveTo(px, py - t * 1.3);
+        ctx.lineTo(px - t * 0.7, py + t * 0.8);
+        ctx.lineTo(px + t * 0.7, py + t * 0.8);
+        ctx.closePath();
+        ctx.fill();
+      } else if (id === "rainforest") {
+        ctx.fillStyle = ["#0a7a2e", "#14a145", "#075c25"][rand() * 3 | 0];
+        ctx.beginPath();
+        ctx.arc(px, py, (2 + rand() * 2) * Math.max(s, 0.6), 0, 6.283);
+        ctx.fill();
+      } else if (id === "savanna") {
+        if (rand() > 0.9) {
+          ctx.fillStyle = "#3f7a2a";
+          ctx.beginPath();
+          ctx.arc(px, py, 2.4 * Math.max(s, 0.7), 0, 6.283);
+          ctx.fill();
+        } else {
+          ctx.strokeStyle = rand() > 0.5 ? "#f0cf70" : "#c99a35";
+          ctx.lineWidth = Math.max(0.8, s);
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+          ctx.lineTo(px + 2.5 * s + 1, py - 4 * s - 1);
+          ctx.stroke();
+        }
+      } else if (id === "desert") {
+        if (rand() > 0.82) {
+          ctx.fillStyle = "rgba(120,80,40,0.7)";
+          ctx.beginPath();
+          ctx.arc(px, py, (1 + rand()) * Math.max(s, 0.7), 0, 6.283);
+          ctx.fill();
+        } else {
+          ctx.strokeStyle = "rgba(196,146,70,0.55)";
+          ctx.lineWidth = Math.max(0.8, s);
+          ctx.beginPath();
+          ctx.moveTo(px - 4 * s - 1, py);
+          ctx.quadraticCurveTo(px, py - 3 * s - 1, px + 4 * s + 1, py);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  ctx.restore();
+  ctx.lineWidth = Math.max(1.5, w / 650);
+  ctx.strokeStyle = st.edge;
+  ctx.lineJoin = "round";
+  ctx.stroke();
+  ctx.restore();
+}
+var STYLE;
+var init_biomeart = __esm({
+  "virtual:data/biomeart.js"() {
+    init_biomes();
+    STYLE = {
+      tundra: { base: "rgba(226,240,255,0.58)", edge: "#eaf6ff" },
+      taiga: { base: "rgba(16,78,48,0.64)", edge: "#46d98a" },
+      rainforest: { base: "rgba(0,120,45,0.64)", edge: "#38ff7a" },
+      savanna: { base: "rgba(222,176,70,0.6)", edge: "#ffd25a" },
+      desert: { base: "rgba(228,190,120,0.64)", edge: "#ffd9a0" }
+    };
+  }
+});
+
+// virtual:data/earthimage.js
+function loadImg(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    const timer = setTimeout(() => reject(new Error("timeout")), 9e3);
+    img.onload = () => {
+      clearTimeout(timer);
+      resolve(img);
+    };
+    img.onerror = () => {
+      clearTimeout(timer);
+      reject(new Error("error"));
+    };
+    img.src = src;
+  });
+}
+function loadEarthImage(name) {
+  if (cache.has(name)) return cache.get(name);
+  const p = (async () => {
+    for (const base of BASES) {
+      try {
+        return await loadImg(base + name);
+      } catch (e) {
+      }
+    }
+    cache.delete(name);
+    throw new Error("texture failed: " + name);
+  })();
+  cache.set(name, p);
+  return p;
+}
+var BASES, cache;
+var init_earthimage = __esm({
+  "virtual:data/earthimage.js"() {
+    BASES = [
+      "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/",
+      "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r170/examples/textures/planets/"
+    ];
+    cache = /* @__PURE__ */ new Map();
+  }
+});
+
+// virtual:views/globe.js
+var globe_exports = {};
+__export(globe_exports, {
+  createGlobe: () => createGlobe,
+  lonLatToVec3: () => lonLatToVec3
+});
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+function lonLatToVec3(lon, lat, r = 1) {
+  const a = lat * Math.PI / 180, o = lon * Math.PI / 180;
+  return new THREE.Vector3(r * Math.cos(a) * Math.cos(o), r * Math.sin(a), -r * Math.cos(a) * Math.sin(o));
+}
+async function createGlobe(host, hooks = {}) {
+  const w = Math.max(host.clientWidth || host.getBoundingClientRect().width || window.innerWidth, 300), h = Math.max(host.clientHeight || host.getBoundingClientRect().height || Math.round(window.innerHeight * 0.62), 300);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1e3);
+  camera.position.set(0, 0, 3);
+  const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1));
+  renderer.setSize(w, h);
+  renderer.shadowMap.enabled = false;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  const canvas = renderer.domElement;
+  host.appendChild(canvas);
+  const controls = new OrbitControls(camera, canvas);
+  controls.enableDamping = false;
+  controls.dampingFactor = 0.08;
+  controls.minDistance = 1.5;
+  controls.maxDistance = 10;
+  controls.enablePan = false;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.5;
+  let autoSpin = true;
+  const stopSpin = () => {
+    autoSpin = false;
+    controls.autoRotate = false;
+  };
+  controls.addEventListener("start", stopSpin);
+  controls.addEventListener("end", stopSpin);
+  const ambientLight = new THREE.AmbientLight(6579300, 0.48);
+  ambientLight.name = "ambientLight";
+  scene.add(ambientLight);
+  const sunLight = new THREE.DirectionalLight(16777215, 1.5);
+  sunLight.name = "sunLight";
+  sunLight.position.set(5, 3, 5);
+  sunLight.castShadow = true;
+  sunLight.shadow.mapSize.width = 2048;
+  sunLight.shadow.mapSize.height = 2048;
+  scene.add(sunLight);  const earthGroup = new THREE.Group();
+  earthGroup.name = "earthGroup";
+  scene.add(earthGroup);
+  const fbCanvas = document.createElement("canvas");
+  fbCanvas.width = 2048;
+  fbCanvas.height = 1024;
+  drawLand(fbCanvas.getContext("2d"), 2048, 1024);
+  const fbTex = new THREE.CanvasTexture(fbCanvas);
+  fbTex.colorSpace = THREE.SRGBColorSpace;
+  const earthMaterial = new THREE.MeshPhongMaterial({
+    map: fbTex,
+    normalScale: new THREE.Vector2(0.8, 0.8),
+    shininess: 100,
+    specular: new THREE.Color(3355443)
+  });
+  const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 96), earthMaterial);
+  earth.name = "earth";
+  earthGroup.add(earth);
+  const ovCanvas = document.createElement("canvas");
+  ovCanvas.width = 2048;
+  ovCanvas.height = 1024;
+  const ovTex = new THREE.CanvasTexture(ovCanvas);
+  ovTex.colorSpace = THREE.SRGBColorSpace;
+  const overlay = new THREE.Mesh(
+    new THREE.SphereGeometry(1.004, 96, 48),
+    new THREE.MeshLambertMaterial({ map: ovTex, transparent: true, depthWrite: false })
+  );
+  overlay.name = "biomeOverlay";
+  earthGroup.add(overlay);
+  const atmosphereMaterial = new THREE.ShaderMaterial({
+    vertexShader: `
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        vPosition = position;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }`,
+    fragmentShader: `
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      uniform vec3 lightDirection;
+      void main() {
+        float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
+        vec3 atmosphereColor = vec3(0.3, 0.6, 1.0);
+        float lightIntensity = max(0.0, dot(normalize(vPosition), lightDirection));
+        atmosphereColor = mix(atmosphereColor, vec3(0.8, 0.9, 1.0), lightIntensity * 0.3);
+        gl_FragColor = vec4(atmosphereColor, 1.0) * intensity;
+      }`,
+    uniforms: { lightDirection: { value: new THREE.Vector3(1, 0, 0).normalize() } },
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+    transparent: true  });
+  const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(1.015, 64, 64), atmosphereMaterial);
+  atmosphere.name = "atmosphere";
+  scene.add(atmosphere);
+  const glowMaterial = new THREE.ShaderMaterial({
+    vertexShader: `
+      varying vec3 vNormal;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }`,
+    fragmentShader: `
+      varying vec3 vNormal;
+      void main() {
+        float intensity = pow(0.5 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 3.0);
+        gl_FragColor = vec4(0.2, 0.5, 1.0, 1.0) * intensity * 0.3;
+      }`,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+    transparent: true
+  });
+  const glow = new THREE.Mesh(new THREE.SphereGeometry(1.05, 32, 32), glowMaterial);
+  glow.name = "outerGlow";
+  scene.add(glow);
+  const cloudsMaterial = new THREE.MeshPhongMaterial({ transparent: true, opacity: 0.4, depthWrite: false, color: 16777215 });
+  const clouds = new THREE.Mesh(new THREE.SphereGeometry(1.008, 64, 64), cloudsMaterial);
+  clouds.name = "clouds";
+  clouds.visible = false;
+  earthGroup.add(clouds);
+  const starsGeometry = new THREE.BufferGeometry();
+  const starsMaterial = new THREE.PointsMaterial({ color: 16777215, size: 0.02, transparent: true, opacity: 0.8, sizeAttenuation: true, vertexColors: true });
+  const sv = [], sc = [];
+  for (let i = 0; i < 15e3; i++) {
+    sv.push((Math.random() - 0.5) * 2e3, (Math.random() - 0.5) * 2e3, (Math.random() - 0.5) * 2e3);
+    const c = new THREE.Color();
+    c.setHSL(Math.random() * 0.2 + 0.5, 0.55, Math.random() * 0.25 + 0.75);
+    sc.push(c.r, c.g, c.b);
+  }
+  starsGeometry.setAttribute("position", new THREE.Float32BufferAttribute(sv, 3));
+  starsGeometry.setAttribute("color", new THREE.Float32BufferAttribute(sc, 3));
+  const stars = new THREE.Points(starsGeometry, starsMaterial);
+  stars.name = "stars";
+  scene.add(stars);
+  const marker = new THREE.Group();
+  marker.name = "selectionMarker";
+  const cyan = 2287359;
+  const dot = new THREE.Mesh(new THREE.SphereGeometry(0.014, 16, 16), new THREE.MeshBasicMaterial({ color: cyan }));
+  dot.name = "markerDot";
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.03, 0.037, 48), new THREE.MeshBasicMaterial({ color: cyan, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
+  ring.name = "markerRing";
+  const beam = new THREE.Mesh(new THREE.CylinderGeometry(25e-4, 25e-4, 0.12, 8), new THREE.MeshBasicMaterial({ color: cyan }));
+  beam.name = "markerBeam";
+  beam.rotation.x = Math.PI / 2;
+  beam.position.z = 0.06;
+  marker.add(dot, ring, beam);
+  marker.visible = false;
+  earthGroup.add(marker);
+  let dayDone = false;
+  const finishDay = () => {
+    if (!dayDone) {
+      dayDone = true;
+      hooks.onReady && hooks.onReady();
+    }
+  };
+  loadEarthImage("earth_atmos_2048.jpg").then((i) => {
+    earthMaterial.map = toTex(i, true);
+    earthMaterial.needsUpdate = true;
+  }).catch(() => {
+  }).finally(finishDay);
+  loadEarthImage("earth_normal_2048.jpg").then((i) => {
+    earthMaterial.normalMap = toTex(i, false);
+    earthMaterial.needsUpdate = true;
+  }).catch(() => {
+  });
+  loadEarthImage("earth_specular_2048.jpg").then((i) => {
+    earthMaterial.specularMap = toTex(i, false);
+    earthMaterial.needsUpdate = true;
+  }).catch(() => {
+  });
+  loadEarthImage("earth_clouds_1024.png").then((i) => {
+    cloudsMaterial.map = toTex(i, true);
+    cloudsMaterial.needsUpdate = true;
+    clouds.visible = true;
+  }).catch(() => {
+  });
+  setTimeout(finishDay, 6e3);
+  const ray = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  let down = null;
+  canvas.addEventListener("pointerdown", (e) => {
+    down = { x: e.clientX, y: e.clientY, t: performance.now() };
+  });
+  canvas.addEventListener("pointerup", (e) => {
+    if (!down) return;
+    const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y);
+    const dt = performance.now() - down.t;
+    down = null;
+    if (moved > 6 || dt > 600) return;
+    const r = canvas.getBoundingClientRect();
+    ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObject(earth, false)[0];
+    if (!hit) return;
+    const p = earthGroup.worldToLocal(hit.point.clone()).normalize();
+    selectPoint(Math.atan2(-p.z, p.x) * 180 / Math.PI, Math.asin(p.y) * 180 / Math.PI, "globe");
+  });
+  let lastBiome;
+  let focus = null;
+  const ovCtx = ovCanvas.getContext("2d");
+  function sync() {
+    if (state.biomeId !== lastBiome) {
+      lastBiome = state.biomeId;
+      ovCtx.clearRect(0, 0, 2048, 1024);
+      if (state.biomeId) paintBiome(ovCtx, 2048, 1024, state.biomeId);
+      ovTex.needsUpdate = true;
+    }
+    if (state.point) {
+      const v = lonLatToVec3(state.point.lon, state.point.lat, 1.006);
+      marker.position.copy(v);
+      marker.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), v.clone().normalize());
+      marker.visible = true;
+      if (state.source !== "globe") {
+        earthGroup.updateMatrixWorld(true);
+        focus = earthGroup.localToWorld(lonLatToVec3(state.point.lon, state.point.lat)).normalize();
+        stopSpin();
+      }
+    } else {
+      marker.visible = false;
+    }
+  }
+  subscribe(sync);
+  sync();
+  let time = 0;
+  let lastFrame = 0;
+  const up = new THREE.Vector3(0, 1, 0);
+  const idQ = new THREE.Quaternion();
+  const curDirection = new THREE.Vector3();
+  const lightDirection = new THREE.Vector3();
+  const lightRight = new THREE.Vector3();
+  const lightOffset = new THREE.Vector3(0, 2, 0);
+  const turnQuaternion = new THREE.Quaternion();
+  let previousFrameTime = 0;
+  function animate(now = 0) {
+    if (now - lastFrame < 33) return;
+    lastFrame = now;
+    const delta = previousFrameTime ? Math.min((now - previousFrameTime) / 1000, 0.05) : 1 / 30;
+    previousFrameTime = now;
+    time += delta;
+    if (autoSpin) earthGroup.rotation.y += 0.12 * delta;
+    if (autoSpin) clouds.rotation.y += 5e-4;
+    if (focus) {
+      const cur = curDirection.copy(camera.position).normalize();
+      if (cur.angleTo(focus) < 0.01) focus = null;
+      else {
+        turnQuaternion.setFromUnitVectors(curDirection.copy(camera.position).normalize(), focus);
+        idQ.identity().slerp(turnQuaternion, 0.1);
+        camera.position.applyQuaternion(idQ);
+        const len = camera.position.length();
+        camera.position.setLength(THREE.MathUtils.lerp(len, Math.min(len, 3.2), 0.1));
+      }
+    }
+    const d = lightDirection.copy(camera.position).normalize();
+    const right = lightRight.copy(d).cross(up).normalize();
+    sunLight.position.copy(d).multiplyScalar(5).addScaledVector(right, 3).add(lightOffset);
+    atmosphereMaterial.uniforms.lightDirection.value.copy(sunLight.position).normalize();
+    starsMaterial.opacity = 0.6 + Math.sin(time * 2) * 0.2;
+    if (marker.visible) {
+      const s = camera.position.length() / 3;
+      marker.scale.setScalar(s);
+      const k = time * 1.2 % 1;
+      ring.scale.setScalar(1 + k * 1.2);
+      ring.material.opacity = 1 - k;
+    }
+    if (autoSpin) controls.update();
+    renderer.render(scene, camera);
+  }
+  function resize() {
+    const cw = host.clientWidth, ch = host.clientHeight;
+    if (cw < 10 || ch < 10) return;
+    camera.aspect = cw / ch;
+    camera.updateProjectionMatrix();
+    renderer.setSize(cw, ch, false);
+    canvas.style.position = "absolute";
+    canvas.style.inset = "0";
+    canvas.style.display = "block";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.touchAction = "none";
+  }
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
+  window.addEventListener("resize", resize);
+  renderer.render(scene, camera);
+  return {
+    start() {
+      resize();
+      previousFrameTime = 0;
+      lastFrame = 0;
+      controls.enabled = true;
+      controls.autoRotate = autoSpin;
+      renderer.setAnimationLoop(animate);
+    },
+    stop() {
+      renderer.setAnimationLoop(null);
+      // Clear any unfinished OrbitControls damping so it cannot jump on re-entry.
+      controls.enableDamping = false;
+      controls.update();
+      controls.enableDamping = true;
+      previousFrameTime = 0;
+      lastFrame = 0;
+    },
+    resize,
+    zoom(f) {
+      camera.position.setLength(THREE.MathUtils.clamp(camera.position.length() * f, 1.5, 10));
+    },
+    toggleSpin() {
+      autoSpin = !autoSpin;
+      controls.autoRotate = autoSpin;
+    },
+    dispose() {
+      renderer.setAnimationLoop(null);
+      renderer.dispose();
+      canvas.remove();
+    }
+  };
+}
+var toTex;
+var init_globe = __esm({
+  "virtual:views/globe.js"() {
+    init_state();
+    init_earthimage();
+    init_fallback();
+    init_biomeart();
+    toTex = (img, srgb) => {
+      const t = new THREE.Texture(img);
+      if (srgb) t.colorSpace = THREE.SRGBColorSpace;
+      t.anisotropy = 4;
+      t.needsUpdate = true;
+      return t;
+    };
+  }
+});
+
+// virtual:main.js
+init_state();
+
+// virtual:data/content.js
+var BIOMES = [
+  {
+    id: "tundra",
+    fa: "\u062A\u0648\u0646\u062F\u0631\u0627",    en: "Tundra",
+    color: "#e6f4ff",
+    info: [
+      ["پراکندگی", "نزدیکی قطب شمال و حاشیهٔ اقیانوس منجمد شمالی؛ در بخش\u200cهای شمالی آمریکای شمالی و اوراسیا."],
+      ["آب\u200cوهوا", "زمستان\u200cهای طولانی و بسیار سرد؛ تابستان\u200cها کوتاه است."],
+      ["دما", "سرمای زمستان ممکن است تا ۳۴- درجهٔ سانتی\u200cگراد برسد؛ میانگین دمای تابستان حداکثر ۱۲ درجهٔ سانتی\u200cگراد است."],
+      ["بارش", "درس برای توندرا مقدار مشخصی برای بارش سالانه ذکر نمی\u200cکند."],
+      ["پوشش گیاهی", "خزه و گلسنگ؛ گیاهان اندکی توان رویش در این شرایط دارند."],
+      ["ویژگی\u200cها", "زمین از یخ و برف پوشیده است؛ با ذوب یخ\u200cها در تابستان باتلاق\u200cهای کم\u200cعمق در زیر خاک ایجاد می\u200cشود. برخی جانوران در زمستان به نواحی گرم\u200cتر مجاور مهاجرت می\u200cکنند."],
+      ["نمونه\u200cها", "نزدیکی قطب شمال و حاشیهٔ اقیانوس منجمد شمالی."],
+    ],
+    endangered: [
+      { fa: "\u062F\u0631\u0646\u0627\u06CC \u0633\u06CC\u0628\u0631\u06CC", latin: "Leucogeranus leucogeranus" },
+      { fa: "\u067E\u0631\u0646\u062F\u0647\u0654 \u0633\u0627\u062D\u0644\u06CC \u0642\u0627\u0634\u0642\u200C\u0646\u0648\u06A9", latin: "Calidris pygmaea" }
+    ],
+    extinct: [
+      { fa: "\u0645\u0627\u0645\u0648\u062A \u067E\u0634\u0645\u0627\u0644\u0648", latin: "Mammuthus primigenius" },
+      { fa: "\u06A9\u0631\u06AF\u062F\u0646 \u067E\u0634\u0645\u0627\u0644\u0648", latin: "Coelodonta antiquitatis" }
+    ]
+  },
+  {
+    id: "taiga",
+    fa: "\u062A\u0627\u06CC\u06AF\u0627",
+    en: "Taiga",
+    color: "#2fa36b",
+    info: [
+      ["پراکندگی", "در جنوب توندرا و در قاره\u200cهای آسیا، اروپا و آمریکای شمالی؛ تقریباً تمام جنگل\u200cهای کانادا از نوع تایگاست."],
+      ["آب\u200cوهوا", "سرد؛ زمین همیشه مرطوب است."],
+      ["دما", "در ۶ ماه از سال، میانگین دما کمتر از صفر درجهٔ سانتی\u200cگراد است."],
+      ["بارش", "حدود ۲۵۰ تا ۵۰۰ میلی\u200cمتر در سال."],
+      ["پوشش گیاهی", "جنگل\u200cهای مخروطیان و سوزنی\u200cبرگ؛ درختانی مانند کاج و سرو که همیشه\u200cسبز هستند و برگ\u200cریزان ندارند."],
+      ["ویژگی\u200cها", "از گسترده\u200cترین زیست\u200cبوم\u200cهاست. جنگل\u200cهای آن بخش عمده\u200cای از چوب نرم موردنیاز تولید کاغذ را تأمین می\u200cکنند. برخی جانوران در زمستان به نواحی گرم\u200cتر مجاور مهاجرت می\u200cکنند."],
+      ["نمونه\u200cها", "جنگل\u200cهای شمال کانادا، بخش\u200cهایی از آسیا و اروپا و نواحی سیبری."],
+    ],
+    endangered: [
+      { fa: "\u0628\u0628\u0631 \u0622\u0645\u0648\u0631 (\u0633\u06CC\u0628\u0631\u06CC)", latin: "Panthera tigris altaica" },
+      { fa: "\u0645\u0634\u06A9\u200C\u06AF\u0648\u0632\u0646 \u0633\u06CC\u0628\u0631\u06CC", latin: "Moschus moschiferus" }
+    ],
+    extinct: [
+      { fa: "\u06AF\u0648\u0632\u0646 \u063A\u0648\u0644\u200C\u067E\u06CC\u06A9\u0631 \u0627\u06CC\u0631\u0644\u0646\u062F\u06CC", latin: "Megaloceros giganteus" },
+      { fa: "\u062E\u0631\u0633 \u063A\u0627\u0631", latin: "Ursus spelaeus" }
+    ]
+  },
+  {
+    id: "rainforest",
+    fa: "\u062C\u0646\u06AF\u0644\u200C\u0647\u0627\u06CC \u0628\u0627\u0631\u0627\u0646\u06CC \u0627\u0633\u062A\u0648\u0627\u06CC\u06CC",
+    en: "Tropical Rainforest",
+    color: "#12a84a",
+    info: [
+      ["پراکندگی", "در مجاورت خط استوا و در چند قاره."],
+      ["آب\u200cوهوا", "همیشه گرم و بسیار مرطوب."],
+      ["دما", "درس بر گرم\u200cبودن همیشگی هوا تأکید می\u200cکند و مقدار عددی دما نمی\u200cدهد."],
+      ["بارش", "حدود ۲۵۰۰ میلی\u200cمتر در سال؛ رطوبت حدود ۸۰ درصد است."],
+      ["پوشش گیاهی", "جنگل\u200cهای انبوه و چندطبقه؛ زیر درختان بلند، درختان کوتاه\u200cتر و علف\u200cهایی با رشد سریع وجود دارند. ارتفاع درختان بلند گاهی به ۲۵ تا ۳۵ متر می\u200cرسد."],
+      ["ویژگی\u200cها", "بیشترین تنوع زیستی جهان را دارد؛ حشره\u200cها، پرندگان، خزندگان و پستانداران در آن زندگی می\u200cکنند."],
+      ["نمونه\u200cها", "مجاورت خط استوا در چند قاره؛ گیاهان نام\u200cبرده\u200cشده در درس شامل شاه\u200cپسند (مانگرو)، نارگیل، قهوهٔ سودانی، هوآ و بامبو هستند."],
+    ],
+    endangered: [
+      { fa: "\u0627\u0648\u0631\u0627\u0646\u06AF\u0648\u062A\u0627\u0646 \u0633\u0648\u0645\u0627\u062A\u0631\u0627", latin: "Pongo abelii" },
+      { fa: "\u06AF\u0648\u0631\u06CC\u0644 \u062F\u0634\u062A\u200C\u0647\u0627\u06CC \u063A\u0631\u0628\u06CC", latin: "Gorilla gorilla" }
+    ],
+    extinct: [
+      { fa: "\u0648\u0632\u063A \u0637\u0644\u0627\u06CC\u06CC", latin: "Incilius periglenes" },
+      { fa: "\u062E\u0641\u0627\u0634 \u062C\u0632\u06CC\u0631\u0647\u0654 \u06A9\u0631\u06CC\u0633\u0645\u0633", latin: "Pipistrellus murrayi" }
+    ]
+  },
+  {
+    id: "savanna",
+    fa: "\u0633\u0627\u0648\u0627\u0646",
+    en: "Savanna",
+    color: "#e0b043",
+    info: [
+      ["پراکندگی", "در مجاورت جنگل\u200cهای استوایی؛ بیشترین وسعت آن در قارهٔ آفریقاست."],
+      ["آب\u200cوهوا", "در تمام طول سال گرم و دارای دو فصل خشک و مرطوب."],
+      ["دما", "در تمام طول سال گرم است؛ درس مقدار عددی دما نمی\u200cدهد."],
+      ["بارش", "درس مقدار عددی بارش سالانه را مشخص نمی\u200cکند؛ وجود دو فصل خشک و مرطوب را بیان می\u200cکند."],
+      ["پوشش گیاهی", "علفزارهایی با درختان تک و پراکنده؛ بائوباب از درختان مشهور آن است."],
+      ["ویژگی\u200cها", "از نظر تنوع جانوری بسیار غنی است؛ علف\u200cخواران بزرگی مانند گورخر، فیل، زرافه و کرگدن و گوشت\u200cخوارانی مانند شیر در آن زندگی می\u200cکنند."],
+      ["نمونه\u200cها", "علفزارهای گرمسیری؛ بیشترین گستره در آفریقا."],
+    ],
+    endangered: [
+      { fa: "\u0633\u06AF \u0648\u062D\u0634\u06CC \u0622\u0641\u0631\u06CC\u0642\u0627\u06CC\u06CC", latin: "Lycaon pictus" },
+      { fa: "\u06A9\u0631\u06AF\u062F\u0646 \u0633\u06CC\u0627\u0647", latin: "Diceros bicornis" }
+    ],
+    extinct: [
+      { fa: "\u06A9\u0648\u0627\u06AF\u0627", latin: "Equus quagga quagga" },
+      { fa: "\u0622\u0646\u062A\u0644\u0648\u067E \u0622\u0628\u06CC", latin: "Hippotragus leucophaeus" }
+    ]
+  },
+  {
+    id: "desert",
+    fa: "\u0628\u06CC\u0627\u0628\u0627\u0646",
+    en: "Desert",
+    color: "#e4be78",
+    info: [
+      ["پراکندگی", "بخش عمدهٔ بیابان\u200cهای گرم و خشک جهان در مجاورت مدار رأس\u200cالسرطان و مدار رأس\u200cالجدی قرار دارد؛ مانند صحرای آفریقا، ربع\u200cالخالی عربستان و لوت ایران."],
+      ["آب\u200cوهوا", "خشک؛ بیابان\u200cها می\u200cتوانند گرم یا سرد باشند."],      ["دما", "در بیابان\u200cهای گرم، روزها بسیار گرم است؛ بیابان\u200cهای سرد نیز وجود دارند."],
+      ["بارش", "کمتر از ۵۰ میلی\u200cمتر در سال؛ این مقدار معیار تعریف بیابان در درس است."],
+      ["پوشش گیاهی", "پوشش گیاهی کم و پراکنده است؛ گیاهان بیابانی با کم\u200cآبی سازگارند."],
+      ["ویژگی\u200cها", "بیابان فقط به مناطق گرم محدود نیست و بیابان سرد نیز وجود دارد."],
+      ["نمونه\u200cها", "صحرای آفریقا، ربع\u200cالخالی در عربستان و بیابان لوت در ایران؛ گُبی نمونه\u200cای از بیابان سرد است."],
+    ],
+    endangered: [
+      { fa: "\u0622\u062F\u0627\u06A9\u0633", latin: "Addax nasomaculatus" },
+      { fa: "\u0634\u062A\u0631 \u062F\u0648\u06A9\u0648\u0647\u0627\u0646\u0647\u0654 \u0648\u062D\u0634\u06CC", latin: "Camelus ferus" }
+    ],
+    extinct: [
+      { fa: "\u0634\u062A\u0631\u0645\u0631\u063A \u0639\u0631\u0628\u06CC", latin: "Struthio camelus syriacus" },
+      { fa: "\u0622\u0646\u062A\u0644\u0648\u067E \u0628\u0648\u0628\u0627\u0644", latin: "Alcelaphus buselaphus buselaphus" }
+    ]
+  }
+];
+var BY_ID = Object.fromEntries(BIOMES.map((b) => [b.id, b]));
+var SAMPLES = [
+  { label: "\u062A\u0648\u0646\u062F\u0631\u0627\u06CC \u0634\u0645\u0627\u0644 \u06A9\u0627\u0646\u0627\u062F\u0627", lon: -108, lat: 66.5 },
+  { label: "\u062A\u0627\u06CC\u06AF\u0627\u06CC \u0633\u06CC\u0628\u0631\u06CC", lon: 95, lat: 60 },
+  { label: "\u0622\u0645\u0627\u0632\u0648\u0646", lon: -62, lat: -4 },
+  { label: "\u0633\u0627\u0648\u0627\u0646 \u0634\u0631\u0642 \u0622\u0641\u0631\u06CC\u0642\u0627", lon: 35, lat: -3 },
+  { label: "\u0635\u062D\u0631\u0627\u06CC \u0622\u0641\u0631\u06CC\u0642\u0627", lon: 15, lat: 24 },
+  { label: "\u06A9\u0648\u06CC\u0631 \u0645\u0631\u06A9\u0632\u06CC \u0627\u06CC\u0631\u0627\u0646", lon: 55, lat: 34 },
+  { label: "\u062E\u0627\u0631\u062C \u0627\u0632 \u067E\u0646\u062C \u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645", lon: 10, lat: 50 }
+];
+
+// virtual:views/panel.js
+init_state();
+
+// virtual:util.js
+var DIG = "\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9";
+var fa = (s) => String(s).replace(/\d/g, (d) => DIG[d]).replace(/\./g, "\u066B");
+function fmtCoord(lon, lat) {
+  return `${fa(Math.abs(lat).toFixed(2))}\xB0 ${lat >= 0 ? "\u0634\u0645\u0627\u0644\u06CC" : "\u062C\u0646\u0648\u0628\u06CC"}\u060C ${fa(Math.abs(lon).toFixed(2))}\xB0 ${lon >= 0 ? "\u0634\u0631\u0642\u06CC" : "\u063A\u0631\u0628\u06CC"}`;
+}
+function parseNum(s) {
+  const t = String(s).replace(/[۰-۹]/g, (d) => DIG.indexOf(d)).replace(/[٠-٩]/g, (d) => "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669".indexOf(d)).replace(/[٫،,]/g, ".").replace(/[−–]/g, "-").trim();
+  return t === "" ? NaN : Number(t);
+}
+
+// virtual:views/panel.js
+var NONE_MSG = "\u0627\u06CC\u0646 \u0646\u0642\u0637\u0647 \u062F\u0631 \u0645\u062D\u062F\u0648\u062F\u0647\u0654 \u0647\u06CC\u0686\u200C\u06CC\u06A9 \u0627\u0632 \u067E\u0646\u062C \u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645 \u0645\u0648\u0631\u062F \u0628\u0631\u0631\u0633\u06CC \u0642\u0631\u0627\u0631 \u0646\u062F\u0627\u0631\u062F.";
+function animalList(title, list) {
+  const items = list.length ? list.map((a) => `<li>${a.fa}<small>${a.latin}</small></li>`).join("") : "<li>\u062C\u0627\u0646\u0648\u0631\u06CC \u06CC\u0627\u0641\u062A \u0646\u0634\u062F</li>";
+  return `<div><h4>${title}</h4><ul>${items}</ul></div>`;
+}
+function render(el) {
+  const { point, result, biomeId, place } = state;
+  const b = biomeId ? BY_ID[biomeId] : null;
+  let h = "";
+  if (point) {
+    h += `<div class="sec"><div class="lbl">\u0645\u0648\u0642\u0639\u06CC\u062A \u0627\u0646\u062A\u062E\u0627\u0628\u200C\u0634\u062F\u0647</div><div class="loc">${place}</div><div class="coord">${fmtCoord(point.lon, point.lat)}</div></div>`;
+  }
+  if (point && b) {
+    h += `<div class="sec"><div class="lbl">\u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645 \u0627\u06CC\u0646 \u0646\u0642\u0637\u0647</div><span class="badge"><i style="background:${b.color}"></i>${b.fa}<small>${b.en}</small></span></div>`;
+    if (result.uncertain) {
+      h += '<div class="note">\u0627\u06CC\u0646 \u0646\u0642\u0637\u0647 \u0646\u0632\u062F\u06CC\u06A9 \u0645\u0631\u0632 \u062A\u0642\u0631\u06CC\u0628\u06CC \u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645 \u0627\u0633\u062A\u061B \u0637\u0628\u0642\u0647\u200C\u0628\u0646\u062F\u06CC \u0622\u0646 \u0642\u0637\u0639\u06CC \u0646\u06CC\u0633\u062A \u0648 \u0645\u0645\u06A9\u0646 \u0627\u0633\u062A \u0628\u0627 \u0645\u0631\u0632 \u0648\u0627\u0642\u0639\u06CC \u0686\u0646\u062F \u062F\u0647 \u06A9\u06CC\u0644\u0648\u0645\u062A\u0631 \u062A\u0641\u0627\u0648\u062A \u062F\u0627\u0634\u062A\u0647 \u0628\u0627\u0634\u062F.</div>';
+    }
+  } else if (point) {
+    h += `<div class="note info">${NONE_MSG}</div>`;
+    if (result.uncertain && result.nearId) {
+      h += `<div class="note">\u0627\u06CC\u0646 \u0646\u0642\u0637\u0647 \u0646\u0632\u062F\u06CC\u06A9 \u0645\u0631\u0632 \u062A\u0642\u0631\u06CC\u0628\u06CC \xAB${BY_ID[result.nearId].fa}\xBB \u0627\u0633\u062A \u0648 \u062A\u0634\u062E\u06CC\u0635 \u0642\u0637\u0639\u06CC \u0646\u06CC\u0633\u062A.</div>`;
+    }
+  } else if (b) {
+    h += `<div class="sec"><div class="lbl">\u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645 \u0628\u0631\u06AF\u0632\u06CC\u062F\u0647</div><span class="badge"><i style="background:${b.color}"></i>${b.fa}<small>${b.en}</small></span></div>`;
+  } else {
+    h += '<div class="note info">\u06CC\u06A9 \u0646\u0642\u0637\u0647 \u0631\u0627 \u0631\u0648\u06CC \u06A9\u0631\u0647 \u06CC\u0627 \u0646\u0642\u0634\u0647 \u0627\u0646\u062A\u062E\u0627\u0628 \u06A9\u0646\u06CC\u062F\u060C \u06CC\u0627 \u06CC\u06A9\u06CC \u0627\u0632 \u067E\u0646\u062C \u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645 \u0631\u0627 \u0627\u0632 \u0646\u0648\u0627\u0631 \u0628\u0627\u0644\u0627 \u0628\u0631\u06AF\u0632\u06CC\u0646\u06CC\u062F.</div>';
+  }
+  if (b) {
+    h += '<div class="sec"><div class="lbl">\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0632\u06CC\u0633\u062A\u200C\u0628\u0648\u0645</div><dl style="margin:4px 0 0">';
+    h += b.info.map(([k, v]) => `<div class="row"><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+    h += "</dl></div>";
+    h += `<div class="sec animals">${animalList("\u062C\u0627\u0646\u0648\u0631\u0627\u0646 \u062F\u0631 \u062E\u0637\u0631 \u0627\u0646\u0642\u0631\u0627\u0636", b.endangered)}${animalList("\u062C\u0627\u0646\u0648\u0631\u0627\u0646 \u0645\u0646\u0642\u0631\u0636\u200C\u0634\u062F\u0647", b.extinct)}</div>`;
+    h += '<div class="note info">\u062A\u0648\u062C\u0647: \u0628\u0631\u062E\u06CC \u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0645\u0645\u06A9\u0646 \u0627\u0633\u062A \u062F\u0631 \u062F\u0631\u0633 5 \u0645\u0637\u0627\u0644\u0639\u0627\u062A \u0627\u062C\u062A\u0645\u0627\u0639\u06CC \u0646\u0647\u0645 \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0634\u062A\u0647 \u0628\u0627\u0634\u0646\u062F. \u0645\u0631\u0632 \u0647\u0627 \u0646\u06CC\u0632 \u062A\u0642\u0631\u06CC\u0628\u06CC \u0627\u0646\u062F.</div>';
+  }
+  el.innerHTML = h;
+}
+function mountPanel(el) {
+  const draw = () => render(el);
+  subscribe(draw);
+  draw();
+}
+
+// virtual:views/legend.js
+init_state();
+function mountLegend(el) {
+  el.innerHTML = "";
+  const btns = BIOMES.map((b) => {
+    const c = document.createElement("button");
+    c.type = "button";
+    c.className = "chip";
+    c.innerHTML = `<i style="background:${b.color}"></i>${b.fa}`;
+    c.addEventListener("click", () => selectBiome(b.id, "legend"));
+    el.appendChild(c);
+    return [b.id, c];
+  });
+  const clear = document.createElement("button");
+  clear.type = "button";
+  clear.className = "chip";
+  clear.textContent = "\u067E\u0627\u06A9\u200C\u06A9\u0631\u062F\u0646 \u0627\u0646\u062A\u062E\u0627\u0628";
+  clear.addEventListener("click", clearSelection);
+  el.appendChild(clear);
+  const paint = () => btns.forEach(([id, c]) => c.classList.toggle("on", state.biomeId === id));
+  subscribe(paint);
+  paint();
+}
+
+// virtual:views/map2d.js
+init_state();
+init_fallback();
+init_biomeart();
+init_earthimage();
+function createMap(host) {
+  const box = document.createElement("div");
+  box.className = "map-box";
+  const canvas = document.createElement("canvas");
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", "\u0646\u0642\u0634\u0647\u0654 \u062C\u0647\u0627\u0646\u061B \u0628\u0631\u0627\u06CC \u0627\u0646\u062A\u062E\u0627\u0628 \u0646\u0642\u0637\u0647 \u0628\u0632\u0646\u06CC\u062F");
+  const pin = document.createElement("div");
+  pin.className = "pin";
+  pin.hidden = true;
+  box.append(canvas, pin);
+  host.appendChild(box);
+  const base = document.createElement("canvas");
+  let W = 0, H = 0, dpr = 1, img = null;
+  function buildBase() {
+    base.width = Math.round(W * dpr);
+    base.height = Math.round(H * dpr);
+    const b = base.getContext("2d");
+    b.setTransform(dpr, 0, 0, dpr, 0, 0);
+    drawLand(b, W, H);
+    if (img) {
+      b.drawImage(img, 0, 0, W, H);
+      b.fillStyle = "rgba(4,10,24,0.3)";
+      b.fillRect(0, 0, W, H);
+    }
+    drawGraticule(b, W, H);
+  }
+  function draw() {
+    if (!W || !host.getClientRects().length) return;
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(base, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (state.biomeId) paintBiome(ctx, W, H, state.biomeId);
+    if (state.point) {
+      pin.hidden = false;
+      pin.style.left = (state.point.lon + 180) / 360 * W + "px";
+      pin.style.top = (90 - state.point.lat) / 180 * H + "px";
+    } else {
+      pin.hidden = true;
+    }  }
+  function resize() {
+    const r = host.getBoundingClientRect();
+    if (r.width < 10 || r.height < 10) return;
+    let w = Math.max(r.width - 16, 720);
+    let h = w / 2;
+    if (r.width - 16 >= 720 && h > r.height - 16) {
+      h = r.height - 16;
+      w = h * 2;
+    }
+    W = Math.floor(w);
+    H = Math.floor(h);
+    dpr = Math.min(window.devicePixelRatio || 1, 1);
+    box.style.width = W + "px";
+    box.style.height = H + "px";
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    buildBase();
+    draw();
+  }
+  canvas.addEventListener("click", (e) => {
+    const r = canvas.getBoundingClientRect();
+    const lon = (e.clientX - r.left) / r.width * 360 - 180;
+    const lat = 90 - (e.clientY - r.top) / r.height * 180;
+    selectPoint(lon, lat, "map");
+  });
+  subscribe(draw);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
+  window.addEventListener("resize", resize);
+  resize();
+  loadEarthImage("earth_atmos_2048.jpg").then((i) => {
+    img = i;
+    buildBase();
+    draw();
+  }).catch(() => {
+  });
+  return { resize };
+}
+
+// virtual:views/command.js
+init_state();
+function setupCommand(form) {
+  form.innerHTML = `
+    <div class="fields">
+      <label>\u0639\u0631\u0636 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC<input id="cmd-lat" inputmode="decimal" autocomplete="off" placeholder="\u0645\u062B\u0644\u0627\u064B \u06F3\u06F2"></label>
+      <label>\u0637\u0648\u0644 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC<input id="cmd-lon" inputmode="decimal" autocomplete="off" placeholder="\u0645\u062B\u0644\u0627\u064B \u06F5\u06F3"></label>
+      <button class="tool primary" type="submit">\u0631\u0641\u062A\u0646 \u0628\u0647 \u0627\u06CC\u0646 \u0646\u0642\u0637\u0647</button>
+    </div>
+    <div class="samples" id="cmd-samples" aria-label="\u0646\u0642\u0627\u0637 \u0646\u0645\u0648\u0646\u0647"></div>\n    
+    <div class="quick">
+      <button class="tool" type="button" data-nav="globe">\u0646\u0645\u0627\u06CC\u0634 \u0631\u0648\u06CC \u06A9\u0631\u0647\u0654 \u0633\u0647\u200C\u0628\u0639\u062F\u06CC</button>
+      <button class="tool" type="button" data-nav="map">\u0646\u0642\u0634\u0647\u0654 \u062F\u0648\u0628\u0639\u062F\u06CC \u062A\u0645\u0627\u0645\u200C\u0635\u0641\u062D\u0647</button>
+      <button class="tool" type="button" data-nav="about">\u062F\u0627\u062F\u0647\u200C\u0647\u0627 \u0648 \u0645\u0646\u0627\u0628\u0639</button>
+    </div>
+    <div class="err" id="cmd-err" role="alert"></div>`;
+  const lat = form.querySelector("#cmd-lat");
+  const lon = form.querySelector("#cmd-lon");
+  const err = form.querySelector("#cmd-err");
+  const box = form.querySelector("#cmd-samples");
+  const updateCoordinates = () => {
+    if (!state.point) return;
+    lat.value = fa(state.point.lat.toFixed(4));
+    lon.value = fa(state.point.lon.toFixed(4));
+  };
+  subscribe(updateCoordinates);
+  updateCoordinates();
+  SAMPLES.forEach((s) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.textContent = s.label;
+    b.addEventListener("click", () => {
+      lat.value = fa(s.lat);
+      lon.value = fa(s.lon);
+      err.textContent = "";
+      selectPoint(s.lon, s.lat, "command");
+    });
+    box.appendChild(b);
+  });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const la = parseNum(lat.value), lo = parseNum(lon.value);
+    if (!isFinite(la) || !isFinite(lo) || la < -90 || la > 90 || lo < -180 || lo > 180) {
+      err.textContent = "\u0645\u062E\u062A\u0635\u0627\u062A \u0646\u0627\u0645\u0639\u062A\u0628\u0631 \u0627\u0633\u062A. \u0639\u0631\u0636 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC \u0628\u0627\u06CC\u062F \u0628\u06CC\u0646 \u06F9\u06F0- \u0648 \u06F9\u06F0 \u0648 \u0637\u0648\u0644 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC \u0628\u06CC\u0646 \u06F1\u06F8\u06F0- \u0648 \u06F1\u06F8\u06F0 \u0628\u0627\u0634\u062F.";
+      return;
+    }
+    err.textContent = "";
+    selectPoint(lo, la, "command");
+  });
+}
+
+// virtual:views/about.js
+function renderAbout(el) {
+  el.innerHTML = `
+  <h2>دربارهٔ داده‌ها و منابع</h2>
+  <p>در این بخش توضیح داده می‌شود که اطلاعات نمایش‌داده‌شده در «مرکز فرماندهی زمین» از چه منابعی آمده‌اند، چگونه پردازش شده‌اند و چه محدودیت‌هایی دارند.</p>
+
+  <h3>منبع تصویر زمین</h3>
+  <p>تصویر زمین و بافت مورد استفاده در نمایش کره و نقشه از فایل تصویری نمونهٔ پروژهٔ three.js بارگذاری می‌شود. این تصویر برای نمایش ظاهری سطح زمین است و به‌تنهایی منبع تعیین مرز زیست‌بوم‌ها یا دادهٔ تحلیلی برنامه نیست. اگر تصویر بارگذاری نشود، برنامه از نقشهٔ ساده‌ای استفاده می‌کند که با چندضلعی‌های تقریبی در خود برنامه رسم شده است.</p>
+
+  <h3>روش نمایش و تشخیص زیست‌بوم‌ها</h3>
+  <p>در این فعالیت، پنج زیست‌بومِ توندرا، تایگا، جنگل‌های بارانی استوایی، ساوان و بیابان نمایش داده می‌شوند؛ این انتخاب مطابق فعالیت درس ۵ کتاب مطالعات اجتماعی پایهٔ نهم است و به معنی آن نیست که جهان فقط پنج زیست‌بوم دارد. کتاب در توضیحات درس، زیست‌بوم‌های بیشتری را معرفی می‌کند.</p>
+  <p>محدودهٔ این پنج زیست‌بوم در برنامه با چندضلعی‌های تقریبی و دست‌ساز تعریف شده است، نه با نقشهٔ رسمی و دقیق GIS. با انتخاب یک نقطه، مختصات آن با این چندضلعی‌ها مقایسه می‌شود تا زیست‌بوم احتمالی مشخص شود. کرهٔ سه‌بعدی و نقشهٔ دوبعدی از همین منطق استفاده می‌کنند؛ بنابراین نتیجهٔ طبقه‌بندی آن‌ها باید یکسان باشد.</p>
+
+  <h3>دقت و محدودیت‌های جغرافیایی</h3>
+  <ul>
+    <li>مرزها ساده‌سازی شده‌اند و مرز دقیق و رسمی زیست‌بوم‌ها نیستند. در طبیعت، گذار میان زیست‌بوم‌ها همیشه خطی و مشخص نیست.</li>
+    <li>برنامه برای هشدار نزدیک‌بودن به مرز از فاصلهٔ تقریبیِ ۱٫۵ درجهٔ مختصات استفاده می‌کند. این مقدار فاصلهٔ ثابت بر حسب کیلومتر نیست: طول هر درجهٔ طول جغرافیایی با عرض جغرافیایی تغییر می‌کند؛ پس نمایش هشدار فقط یک تقریب آموزشی است.</li>
+    <li>همهٔ مناطق و زیست‌بوم‌های جهان در این مدل ساده پوشش داده نشده‌اند؛ از جمله برخی نواحی کوهستانی، گذار و زیست‌بوم‌های کوچک.</li>
+    <li>نام مکان از یک فهرست محدود از نام‌ها و نزدیک‌ترین مورد موجود انتخاب می‌شود؛ بنابراین ممکن است نام دقیق شهر، جزیره یا کشورِ نقطهٔ انتخاب‌شده نباشد.</li>
+    <li>تشخیص اقیانوس‌ها و جنوبگان با چند شرط سادهٔ مختصاتی انجام می‌شود، نه با مرزهای دقیق ساحلی و داده‌های GIS؛ بنابراین در نزدیکی سواحل و مرزهای جغرافیایی احتمال خطا وجود دارد.</li>
+    <li>اگر نقطه در محدودهٔ هم‌پوشان چندضلعی‌ها قرار بگیرد، ترتیب بررسی زیست‌بوم‌ها در کد بر نتیجه اثر می‌گذارد. این مدل برای آموزش ساده شده و جایگزین نقشه‌برداری علمی نیست.</li>
+  </ul>
+
+  <h3>منبع آموزشی اطلاعات زیست‌بوم‌ها</h3>
+  <p>مبنای آموزشی این فعالیت، درس ۵ کتاب مطالعات اجتماعی پایهٔ نهم، با موضوع «پراکندگی زیست‌بوم‌های جهان» است. درس، هشت زیست‌بوم را معرفی می‌کند؛ اما فعالیت نقشه، دانش‌آموزان را به یافتن پنج زیست‌بومِ توندرا، تایگا، جنگل‌های بارانی استوایی، ساوان و بیابان هدایت می‌کند. بنابراین نمایش همین پنج مورد در برنامه با هدف آن فعالیت هماهنگ است.</p>
+  <p>ویژگی‌های کلی زیست‌بوم‌ها در برنامه برای آموزش و مقایسه خلاصه شده‌اند. مرزها و اعداد اقلیمیِ نمایش‌داده‌شده نباید به‌عنوان اندازه‌گیری دقیق یک نقطه یا جایگزین متن کتاب و داده‌های اقلیمی تخصصی در نظر گرفته شوند. در طبیعت، عواملی مانند دما، بارش، طول فصل خشک، ارتفاع و ناهمواری‌ها بر پراکندگی زیست‌بوم‌ها اثر می‌گذارند.</p>
+
+  <h3>جانوران و وضعیت حفاظتی آن‌ها</h3>
+  <p>فهرست جانوران برنامه، مجموعه‌ای محدود و دست‌چین‌شده برای نمونه‌های آموزشی است؛ این فهرست همهٔ جانوران هر زیست‌بوم را نشان نمی‌دهد. نام علمی و وضعیت حفاظتی جانوران با اطلاعات منتشرشده، به‌ویژه ارزیابی‌های جهانی IUCN، تطبیق داده شده است. در این بررسی، مواردی که ارزیابی آن‌ها قدیمی بوده یا وضعیتشان به‌طور مستقیم تأیید نشده، جداگانه مشخص شده‌اند.</p>
+  <p><strong>این بررسی یعنی اطلاعات فهرست جانوران با منابع علمی مقایسه شده و موارد نامطمئن هم مشخص شده‌اند؛ اما برنامه خودش به وب‌سایت IUCN وصل نیست. پس اگر IUCN در آینده وضعیت یک جانور را تغییر دهد، این تغییر خودکار وارد برنامه نمی‌شود و اطلاعات برنامه ممکن است به بازبینی و به‌روزرسانی دستی نیاز داشته باشد.</strong></p>
+  <p>توجه کنید که IUCN فهرست سرخ را در طول سال به‌روزرسانی می‌کند، اما همهٔ گونه‌ها در هر نوبت دوباره ارزیابی نمی‌شوند و فاصلهٔ ارزیابی‌های هر گونه می‌تواند متفاوت باشد. بنابراین تاریخ ارزیابی هر جانور نیز اهمیت دارد.</p>
+  <p>برخی نام‌های فهرست به زیرگونه‌های منقرض‌شده اشاره دارند، نه گونه‌های کاملاً منقرض‌شده؛ همچنین جانوران پیش‌ازتاریخیِ منقرض‌شده ارزیابی حفاظتی جاری ندارند. قرارگرفتن یک جانور در فهرست یک زیست‌بوم نیز به معنی محدودبودن پراکندگی آن به همان زیست‌بوم نیست.</p>
+
+  <h3>وضعیت اعتبار داده‌ها</h3>
+  <table class="tbl">
+    <tr><th>بخش</th><th>منبع یا روش</th><th>میزان اطمینان و محدودیت</th></tr>
+    <tr><td>تصویر زمین</td><td>بافت تصویری نمونهٔ three.js و نقشهٔ جایگزین دست‌ساز</td><td>برای نمایش بصری؛ نه مرجع تعیین مرز زیست‌بوم‌ها</td></tr>
+    <tr><td>مرز زیست‌بوم‌ها</td><td>چندضلعی‌های تقریبیِ تعریف‌شده در برنامه</td><td>مدل آموزشی ساده؛ نه دادهٔ رسمی GIS</td></tr>
+    <tr><td>تشخیص نقطه و نام مکان</td><td>مختصات، قواعد ساده و فهرست محدود نام مکان‌ها</td><td>تقریبی؛ ممکن است نزدیک مرزها یا در نام‌گذاری خطا رخ دهد</td></tr>
+    <tr><td>توضیحات زیست‌بوم‌ها</td><td>درس ۵ مطالعات اجتماعی پایهٔ نهم و خلاصه‌سازی آموزشی</td><td>هماهنگ با موضوع درس؛ اعداد و مرزها دقیق و محلی نیستند</td></tr>
+    <tr><td>وضعیت حفاظتی جانوران</td><td>تطبیق دستی با ارزیابی‌های IUCN و منابع تخصصی</td><td>برخی ارزیابی‌ها قدیمی‌اند یا نیازمند تأیید مستقیم؛ به‌روزرسانی خودکار وجود ندارد</td></tr>
+  </table>
+  <p style="margin-top:16px"><button class="tool primary" type="button" data-nav="home">بازگشت به صفحهٔ اصلی</button></p>`;
+}
+
+//
+// virtual:main.js
+var $ = (s, r = document) => r.querySelector(s);
+var safe = (fn) => {
+  try {
+    return fn();
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
+document.querySelectorAll("[data-panel]").forEach((el) => safe(() => mountPanel(el)));
+document.querySelectorAll("[data-legend]").forEach((el) => safe(() => mountLegend(el)));
+safe(() => setupCommand($("#cmd-form")));
+safe(() => renderAbout($("#about-box")));
+safe(() => {
+  const chips = $("#home-chips");
+  if (chips) BIOMES.forEach((b) => {
+    const c = document.createElement("button");
+    c.type = "button";
+    c.className = "chip";
+    c.innerHTML = `<i style="background:${b.color}"></i>${b.fa}`;
+    c.addEventListener("click", () => {
+      selectBiome(b.id, "home");
+      navigate("command");
+    });
+    chips.appendChild(c);
+  });
+});
+var stack = ["home"];
+var current = "home";
+var maps = {};
+var globe = null;
+var globeLoading = false;
+function ensureMap(key, hostSel) {
+  if (!maps[key]) maps[key] = safe(() => createMap($(hostSel)));
+  requestAnimationFrame(() => maps[key] && maps[key].resize());
+}
+var withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
+function globeMsg(text, showButtons) {
+  $("#g-msg").hidden = false;
+  $("#g-msg-text").textContent = text;
+  $("#g-msg-btns").hidden = !showButtons;
+}
+async function enterGlobe() {
+  if (globe) {
+    $("#g-msg").hidden = true;
+    globe.start();
+    return;
+  }
+  if (globeLoading) return;
+  globeLoading = true;
+  globeMsg("\u062F\u0631 \u062D\u0627\u0644 \u0628\u0627\u0631\u06AF\u0630\u0627\u0631\u06CC \u06A9\u0631\u0647\u0654 \u0632\u0645\u06CC\u0646\u2026", false);
+  try {
+    const mod = await withTimeout(Promise.resolve().then(() => (init_globe(), globe_exports)), 2e4);
+    globe = await mod.createGlobe($("#globe-host"), { onReady: () => {
+      $("#g-msg").hidden = true;
+    } });
+    if (current === "globe") globe.start();
+  } catch (e) {
+    console.error(e);
+    globe = null;
+    globeMsg("\u0628\u0627\u0631\u06AF\u0630\u0627\u0631\u06CC \u06A9\u0631\u0647\u0654 \u0633\u0647\u200C\u0628\u0639\u062F\u06CC \u0645\u0645\u06A9\u0646 \u0646\u0634\u062F. \u0645\u0645\u06A9\u0646 \u0627\u0633\u062A \u0645\u0631\u0648\u0631\u06AF\u0631 \u0627\u0632 WebGL \u067E\u0634\u062A\u06CC\u0628\u0627\u0646\u06CC \u0646\u06A9\u0646\u062F \u06CC\u0627 \u0627\u062A\u0635\u0627\u0644 \u0627\u06CC\u0646\u062A\u0631\u0646\u062A \u0645\u0634\u06A9\u0644 \u062F\u0627\u0634\u062A\u0647 \u0628\u0627\u0634\u062F. \u0645\u06CC\u200C\u062A\u0648\u0627\u0646\u06CC\u062F \u062F\u0648\u0628\u0627\u0631\u0647 \u062A\u0644\u0627\u0634 \u06A9\u0646\u06CC\u062F \u06CC\u0627 \u0627\u0632 \u0646\u0642\u0634\u0647\u0654 \u062F\u0648\u0628\u0639\u062F\u06CC \u0627\u0633\u062A\u0641\u0627\u062F\u0647 \u06A9\u0646\u06CC\u062F.", true);
+  } finally {
+    globeLoading = false;
+  }
+}
+function navigate(name, opts = {}) {
+  const view = document.querySelector(`[data-view="${name}"]`);
+  if (!view) name = "home";
+  if (globe && current === "globe" && name !== "globe") globe.stop();
+  if (!opts.back && name !== current) stack.push(name);
+  current = name;
+  document.querySelectorAll("[data-view]").forEach((v) => {
+    v.hidden = v.dataset.view !== name;
+  });
+  document.querySelectorAll("nav .link").forEach((l) => l.classList.toggle("active", l.dataset.nav === name));
+  window.scrollTo(0, 0);
+  if (name === "globe") enterGlobe();
+  if (name === "map") ensureMap("map", "#map-host");
+  if (name === "command") ensureMap("command", "#cmd-host");
+}
+document.addEventListener("click", (e) => {
+  const nav = e.target.closest("[data-nav]");
+  if (nav) {
+    e.preventDefault();
+    navigate(nav.dataset.nav);
+    return;
+  }
+  if (e.target.closest("[data-back]")) {
+    e.preventDefault();
+    stack.pop();
+    navigate(stack[stack.length - 1] || "home", { back: true });
+  }
+});
+$("#g-in").addEventListener("click", () => globe && globe.zoom(0.8));
+$("#g-out").addEventListener("click", () => globe && globe.zoom(1.25));
+$("#g-retry").addEventListener("click", () => {
+  globe = null;
+  enterGlobe();
+});
+window.addEventListener("keydown", (e) => {
+  if (e.code === "Space" && current === "globe" && globe && e.target === document.body) {
+    e.preventDefault();
+    globe.toggleSpin();
+  }
+});
+navigate("home");
+
+</script>
+
+</body></html>
