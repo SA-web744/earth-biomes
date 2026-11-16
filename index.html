@@ -247,8 +247,7 @@ addEventListener('popstate',function(){setTimeout(send,0);});
   src: url(https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlHcWW.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/* arabic */
-@font-face {
+/* arabic */@font-face {
   font-family: 'Vazirmatn';
   font-style: normal;
   font-weight: 400;
@@ -497,8 +496,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
       <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
       <form class="cmd" id="cmd-form" novalidate="">
     <div class="fields">
-      <label>عرض جغرافیایی<input id="cmd-lat" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۳۲"></label>
-      <label>طول جغرافیایی<input id="cmd-lon" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۵۳"></label>
+      <label>عرض جغرافیایی<input id="cmd-lat" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۳۲"></label>      <label>طول جغرافیایی<input id="cmd-lon" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۵۳"></label>
       <button class="tool primary" type="submit">رفتن به این نقطه</button>
     </div>
     <div class="samples" id="cmd-samples" aria-label="نقاط نمونه"><button type="button" class="chip">توندرای شمال کانادا</button><button type="button" class="chip">تایگای سیبری</button><button type="button" class="chip">آمازون</button><button type="button" class="chip">ساوان شرق آفریقا</button><button type="button" class="chip">صحرای آفریقا</button><button type="button" class="chip">کویر مرکزی ایران</button><button type="button" class="chip">خارج از پنج زیست‌بوم</button></div>
@@ -747,8 +745,7 @@ var init_geo = __esm({
       baffin: P(-78, 64.5, -72, 67.5, -68, 70, -78, 73, -88, 73.5, -82, 70, -86, 69.5, -79, 66),
       victoria: P(-125, 71.5, -117, 73, -104, 73, -100, 70, -110, 68.5, -118, 70.5),
       ellesmere: P(-90, 76, -80, 76, -62, 82, -80, 83, -92, 81),
-      svalbard: P(11, 78.5, 17, 80, 27, 80, 22, 77.5, 16, 76.7),
-      novayaZemlya: P(52, 71, 57, 75, 68, 77, 63, 75, 56, 72),
+      svalbard: P(11, 78.5, 17, 80, 27, 80, 22, 77.5, 16, 76.7),      novayaZemlya: P(52, 71, 57, 75, 68, 77, 63, 75, 56, 72),
       cuba: P(-85, 22, -82, 23.2, -77, 21.7, -74.2, 20.2, -77.5, 19.9, -81, 22.5),
       srilanka: P(79.8, 9.5, 81.8, 7.5, 81, 6, 80, 6.2, 79.7, 8)
     };
@@ -997,8 +994,7 @@ var init_fallback = __esm({
 // virtual:data/biomeart.js
 function rng(seed) {
   let s = seed >>> 0;
-  return () => {
-    s = s * 1664525 + 1013904223 >>> 0;
+  return () => {    s = s * 1664525 + 1013904223 >>> 0;
     return s / 4294967296;
   };
 }
@@ -1186,6 +1182,7 @@ async function createGlobe(host, hooks = {}) {
     controls.autoRotate = false;
   };
   controls.addEventListener("start", stopSpin);
+  controls.addEventListener("end", stopSpin);
   const ambientLight = new THREE.AmbientLight(6579300, 0.48);
   ambientLight.name = "ambientLight";
   scene.add(ambientLight);
@@ -1247,8 +1244,7 @@ async function createGlobe(host, hooks = {}) {
     uniforms: { lightDirection: { value: new THREE.Vector3(1, 0, 0).normalize() } },
     blending: THREE.AdditiveBlending,
     side: THREE.BackSide,
-    transparent: true
-  });
+    transparent: true  });
   const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(1.015, 64, 64), atmosphereMaterial);
   atmosphere.name = "atmosphere";
   scene.add(atmosphere);
@@ -1397,7 +1393,7 @@ async function createGlobe(host, hooks = {}) {
     previousFrameTime = now;
     time += delta;
     if (autoSpin) earthGroup.rotation.y += 0.12 * delta;
-    clouds.rotation.y += 5e-4;
+    if (autoSpin) clouds.rotation.y += 5e-4;
     if (focus) {
       const cur = curDirection.copy(camera.position).normalize();
       if (cur.angleTo(focus) < 0.01) focus = null;
@@ -1497,8 +1493,7 @@ init_state();
 var BIOMES = [
   {
     id: "tundra",
-    fa: "\u062A\u0648\u0646\u062F\u0631\u0627",
-    en: "Tundra",
+    fa: "\u062A\u0648\u0646\u062F\u0631\u0627",    en: "Tundra",
     color: "#e6f4ff",
     info: [
       ["پراکندگی", "نزدیکی قطب شمال و حاشیهٔ اقیانوس منجمد شمالی؛ در بخش\u200cهای شمالی آمریکای شمالی و اوراسیا."],
@@ -1747,8 +1742,7 @@ function createMap(host) {
       pin.style.top = (90 - state.point.lat) / 180 * H + "px";
     } else {
       pin.hidden = true;
-    }
-  }
+    }  }
   function resize() {
     const r = host.getBoundingClientRect();
     if (r.width < 10 || r.height < 10) return;
