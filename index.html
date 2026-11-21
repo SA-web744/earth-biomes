@@ -1701,7 +1701,11 @@ function createMap(host) {
   const pin = document.createElement("div");
   pin.className = "pin";
   pin.hidden = true;
-  box.append(canvas, pin);
+  const loading = document.createElement("div");
+  loading.textContent = "در حال بارگذاری تصویر نقشه…";
+  loading.style.cssText = "position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;color:#8da0c0;background:#070b14;border:1px solid rgba(120,205,255,.2);border-radius:8px;";
+  canvas.style.visibility = "hidden";
+  box.append(canvas, pin, loading);
   host.appendChild(box);
   const base = document.createElement("canvas");
   let W = 0, H = 0, dpr = 1, img = null;
@@ -1768,7 +1772,11 @@ function createMap(host) {
     img = i;
     buildBase();
     draw();
+    canvas.style.visibility = "visible";
+    loading.remove();
   }).catch(() => {
+    loading.textContent = "بارگذاری تصویر واقعی نقشه ممکن نشد؛ نقشهٔ ساده نمایش داده می‌شود.";
+    canvas.style.visibility = "visible";
   });
   return { resize };
 }
