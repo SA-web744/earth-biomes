@@ -1439,6 +1439,14 @@ async function createGlobe(host, hooks = {}) {
   return {
     start() {
       resize();
+      // Apply any map-selected focus while the globe is still paused,
+      // so re-entering the globe never triggers a delayed camera movement.
+      if (focus) {
+        turnQuaternion.setFromUnitVectors(curDirection.copy(camera.position).normalize(), focus);
+        camera.position.applyQuaternion(turnQuaternion);
+        focus = null;
+        controls.update();
+      }
       previousFrameTime = 0;
       lastFrame = 0;
       controls.enabled = true;
