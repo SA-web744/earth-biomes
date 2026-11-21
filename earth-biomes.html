@@ -1153,6 +1153,9 @@ function lonLatToVec3(lon, lat, r = 1) {
   return new THREE.Vector3(r * Math.cos(a) * Math.cos(o), r * Math.sin(a), -r * Math.cos(a) * Math.sin(o));
 }
 async function createGlobe(host, hooks = {}) {
+  // Wait for the real Earth surface image before creating the globe.
+  // This prevents the simplified fallback map from appearing on first entry.
+  const earthImage = await loadEarthImage("earth_atmos_2048.jpg");
   const w = Math.max(host.clientWidth || host.getBoundingClientRect().width || window.innerWidth, 300), h = Math.max(host.clientHeight || host.getBoundingClientRect().height || Math.round(window.innerHeight * 0.62), 300);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1e3);
@@ -1192,14 +1195,8 @@ async function createGlobe(host, hooks = {}) {
   scene.add(sunLight);  const earthGroup = new THREE.Group();
   earthGroup.name = "earthGroup";
   scene.add(earthGroup);
-  const fbCanvas = document.createElement("canvas");
-  fbCanvas.width = 2048;
-  fbCanvas.height = 1024;
-  drawLand(fbCanvas.getContext("2d"), 2048, 1024);
-  const fbTex = new THREE.CanvasTexture(fbCanvas);
-  fbTex.colorSpace = THREE.SRGBColorSpace;
   const earthMaterial = new THREE.MeshPhongMaterial({
-    map: fbTex,
+    map: toTex(earthImage, true),
     normalScale: new THREE.Vector2(0.8, 0.8),
     shininess: 100,
     specular: new THREE.Color(3355443)
@@ -1298,18 +1295,6 @@ async function createGlobe(host, hooks = {}) {
   marker.add(dot, ring, beam);
   marker.visible = false;
   earthGroup.add(marker);
-  let dayDone = false;
-  const finishDay = () => {
-    if (!dayDone) {
-      dayDone = true;
-      hooks.onReady && hooks.onReady();
-    }
-  };
-  loadEarthImage("earth_atmos_2048.jpg").then((i) => {
-    earthMaterial.map = toTex(i, true);
-    earthMaterial.needsUpdate = true;
-  }).catch(() => {
-  }).finally(finishDay);
   loadEarthImage("earth_normal_2048.jpg").then((i) => {
     earthMaterial.normalMap = toTex(i, false);
     earthMaterial.needsUpdate = true;
@@ -1326,7 +1311,6 @@ async function createGlobe(host, hooks = {}) {
     clouds.visible = true;
   }).catch(() => {
   });
-  setTimeout(finishDay, 6e3);
   const ray = new THREE.Raycaster();
   const ndc = new THREE.Vector2();
   let down = null;
@@ -1433,6 +1417,7 @@ async function createGlobe(host, hooks = {}) {
   if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
   window.addEventListener("resize", resize);
   renderer.render(scene, camera);
+  hooks.onReady && hooks.onReady();
   return {
     start() {
       resize();
