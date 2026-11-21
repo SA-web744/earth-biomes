@@ -1119,16 +1119,10 @@ function loadImg(src) {
 }
 function loadEarthImage(name) {
   if (cache.has(name)) return cache.get(name);
-  const p = (async () => {
-    for (const base of BASES) {
-      try {
-        return await loadImg(base + name);
-      } catch (e) {
-      }
-    }
+  const p = Promise.any(BASES.map((base) => loadImg(base + name))).catch(() => {
     cache.delete(name);
     throw new Error("texture failed: " + name);
-  })();
+  });
   cache.set(name, p);
   return p;
 }
