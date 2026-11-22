@@ -90,7 +90,7 @@ addEventListener('popstate',function(){setTimeout(send,0);});
   </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مرکز فرماندهی زمین | EARTH COMMAND CENTER</title>
+<title>کاوشگر زیست‌بوم‌ها | ECOSYSTEM EXPLORER</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <style>
@@ -437,7 +437,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
 </head>
 <body>
 <header class="top">
-  <button class="brand" type="button" data-nav="home"><span class="brand-fa">مرکز فرماندهی زمین</span><span class="brand-en">EARTH COMMAND CENTER</span></button>
+  <button class="brand" type="button" data-nav="home"><span class="brand-fa">کاوشگر زیست‌بوم‌ها</span><span class="brand-en">ECOSYSTEM EXPLORER</span></button>
   <nav aria-label="ناوبری اصلی">
     <button class="link active" type="button" data-nav="home">خانه</button>
     <button class="link" type="button" data-nav="globe">کرهٔ سه‌بعدی</button>
@@ -450,11 +450,11 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   <section class="view" data-view="home">
     <div class="window">
       <div class="chrome"><span class="dot" style="background:#ff5f6d"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#28c840"></span><span class="tab"></span></div>
-      <div class="urlbar"><i></i><span>earth-command-center</span><i></i></div>
+      <div class="urlbar"><i></i><span>ecosystem explorer</span><i></i></div>
       <div class="wbody">
-        <div class="en">EARTH COMMAND CENTER</div>
-        <h1>مرکز فرماندهی زمین</h1>
-        <p class="sub">زمین را بگردید، پنج زیست‌بوم بزرگ را روی کره و نقشه پیدا کنید و با ویژگی‌های آب‌وهوایی و جانوران در خطر انقراض و منقرض‌شدهٔ هر کدام آشنا شوید.</p>
+        <div class="en">ECOSYSTEM EXPLORER</div>
+        <h1>کاوشگر زیست‌بوم‌ها</h1>
+        <p class="sub">با کاوش در کره و نقشه، زیست‌بوم هر منطقه را کشف کنید، با ویژگی‌های آب‌وهوایی آن آشنا شوید و جانوران در خطر انقراض و منقرض‌شدهٔ آن منطقه را بشناسید.</p>
         <div class="actions">
           <button class="btn" type="button" data-nav="globe"><b>کرهٔ زمین سه‌بعدی</b><small>چرخاندن، بزرگ‌نمایی و انتخاب نقطه</small></button>
           <button class="btn" type="button" data-nav="map"><b>نقشهٔ دوبعدی</b><small>انتخاب نقطه و برجسته‌شدن زیست‌بوم</small></button>
@@ -493,7 +493,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   <section class="view" data-view="about" hidden="">
     <div class="about glass" id="about-box">
   <h2>دربارهٔ داده‌ها و منابع</h2>
-  <p>این صفحه توضیح می‌دهد داده‌های «مرکز فرماندهی زمین» از کجا آمده‌اند، چگونه به‌کار رفته‌اند و چه محدودیت‌هایی دارند.</p>
+  <p>این صفحه توضیح می‌دهد داده‌های «کاوشگر زیست‌بوم‌ها» از کجا آمده‌اند، چگونه به‌کار رفته‌اند و چه محدودیت‌هایی دارند.</p>
 
   <h3>منبع اطلاعات جغرافیایی</h3>
   <p>تصویر سطح زمین روی کره و نقشه از تصاویر نمونهٔ پروژهٔ three.js بارگذاری می‌شود. اگر بارگذاری ناموفق باشد، نقشهٔ ساده‌ای که از چندضلعی‌های دست‌ساز خود پروژه ساخته می‌شود جایگزین آن خواهد شد. مرز زیست‌بوم‌ها از یک پایگاه داده زنده خوانده نمی‌شود.</p>
@@ -1816,7 +1816,7 @@ function setupCommand(form, source) {
 function renderAbout(el) {
   el.innerHTML = `
   <h2>دربارهٔ داده‌ها و منابع</h2>
-  <p>در این بخش توضیح داده می‌شود که اطلاعات نمایش‌داده‌شده در «مرکز فرماندهی زمین» از چه منابعی آمده‌اند، چگونه پردازش شده‌اند و چه محدودیت‌هایی دارند.</p>
+  <p>در این بخش توضیح داده می‌شود که اطلاعات نمایش‌داده‌شده در «کاوشگر زیست‌بوم‌ها» از چه منابعی آمده‌اند، چگونه پردازش شده‌اند و چه محدودیت‌هایی دارند.</p>
 
   <h3>منبع تصویر زمین</h3>
   <p>تصویر زمین و بافت مورد استفاده در نمایش کره و نقشه از فایل تصویری نمونهٔ پروژهٔ three.js بارگذاری می‌شود. این تصویر برای نمایش ظاهری سطح زمین است و به‌تنهایی منبع تعیین مرز زیست‌بوم‌ها یا دادهٔ تحلیلی برنامه نیست. اگر تصویر بارگذاری نشود، برنامه از نقشهٔ ساده‌ای استفاده می‌کند که با چندضلعی‌های تقریبی در خود برنامه رسم شده است.</p>
