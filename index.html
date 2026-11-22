@@ -443,7 +443,6 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
     <button class="link" type="button" data-nav="globe">کرهٔ سه‌بعدی</button>
     <button class="link" type="button" data-nav="map">نقشهٔ دوبعدی</button>
     <button class="link" type="button" data-nav="about">داده‌ها و منابع</button>
-    <button class="pill" type="button" data-nav="command">ورود به مرکز فرماندهی</button>
   </nav>
 </header>
 
@@ -459,7 +458,6 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
         <div class="actions">
           <button class="btn" type="button" data-nav="globe"><b>کرهٔ زمین سه‌بعدی</b><small>چرخاندن، بزرگ‌نمایی و انتخاب نقطه</small></button>
           <button class="btn" type="button" data-nav="map"><b>نقشهٔ دوبعدی</b><small>انتخاب نقطه و برجسته‌شدن زیست‌بوم</small></button>
-          <button class="btn primary" type="button" data-nav="command"><b>ورود به مرکز فرماندهی</b><small>مختصات، نمونه‌ها و اطلاعات کامل</small></button>
           <button class="btn" type="button" data-nav="about"><b>دربارهٔ داده‌ها و منابع</b><small>روش، دقت و محدودیت‌ها</small></button>
         </div>
       </div>
@@ -470,13 +468,14 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
     <div class="stage glass">
       <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>کرهٔ زمین سه‌بعدی</strong><span class="sp"></span><button class="tool" type="button" data-nav="map">نقشهٔ دوبعدی</button></div>
       <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
+      <form class="cmd" id="cmd-form-globe" aria-label="ورود مختصات و نقاط نمونه" novalidate=""></form>
       <div class="canvas-host" id="globe-host" style="overflow:hidden"></div>
       <div class="tools">
         <button class="tool" id="g-in" type="button" aria-label="بزرگ‌نمایی">+</button>
         <button class="tool" id="g-out" type="button" aria-label="کوچک‌نمایی">−</button>
       </div>
       <div class="hint">برای انتخاب نقطه، روی کره بزنید یا لمس کنید</div>
-      <div class="msg" id="g-msg" hidden=""><div id="g-msg-text">در حال بارگذاری کرهٔ زمین…</div><div class="row2" id="g-msg-btns" hidden=""><button class="tool primary" id="g-retry" type="button">تلاش دوباره</button><button class="tool" type="button" data-nav="map">رفتن به نقشهٔ دوبعدی</button><button class="tool" type="button" data-nav="command">مرکز فرماندهی</button></div></div>
+      <div class="msg" id="g-msg" hidden=""><div id="g-msg-text">در حال بارگذاری کرهٔ زمین…</div><div class="row2" id="g-msg-btns" hidden=""><button class="tool primary" id="g-retry" type="button">تلاش دوباره</button><button class="tool" type="button" data-nav="map">رفتن به نقشهٔ دوبعدی</button></div></div>
     </div>
     <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
   </section>
@@ -485,28 +484,8 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
     <div class="stage glass">
       <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>نقشهٔ دوبعدی</strong><span class="sp"></span><button class="tool" type="button" data-nav="globe">کرهٔ سه‌بعدی</button></div>
       <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
+      <form class="cmd" id="cmd-form-map" aria-label="ورود مختصات و نقاط نمونه" novalidate=""></form>
       <div class="canvas-host" id="map-host"></div>
-    </div>
-    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
-  </section>
-
-  <section class="view explore" data-view="command" hidden="">
-    <div class="stage glass">
-      <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>مرکز فرماندهی</strong></div>
-      <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
-      <form class="cmd" id="cmd-form" novalidate="">
-    <div class="fields">
-      <label>عرض جغرافیایی<input id="cmd-lat" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۳۲"></label>      <label>طول جغرافیایی<input id="cmd-lon" inputmode="decimal" autocomplete="off" placeholder="مثلاً ۵۳"></label>
-      <button class="tool primary" type="submit">رفتن به این نقطه</button>
-    </div>
-    <div class="samples" id="cmd-samples" aria-label="نقاط نمونه"><button type="button" class="chip">توندرای شمال کانادا</button><button type="button" class="chip">تایگای سیبری</button><button type="button" class="chip">آمازون</button><button type="button" class="chip">ساوان شرق آفریقا</button><button type="button" class="chip">صحرای آفریقا</button><button type="button" class="chip">کویر مرکزی ایران</button><button type="button" class="chip">خارج از پنج زیست‌بوم</button></div>
-    <div class="quick">
-      <button class="tool" type="button" data-nav="globe">نمایش روی کرهٔ سه‌بعدی</button>
-      <button class="tool" type="button" data-nav="map">نقشهٔ دوبعدی تمام‌صفحه</button>
-      <button class="tool" type="button" data-nav="about">داده‌ها و منابع</button>
-    </div>
-    <div class="err" id="cmd-err" role="alert"></div></form>
-      <div class="canvas-host" id="cmd-host"></div>
     </div>
     <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
   </section>
@@ -1611,7 +1590,7 @@ init_state();
 
 // virtual:util.js
 var DIG = "\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9";
-var fa = (s) => String(s).replace(/\d/g, (d) => DIG[d]).replace(/\./g, "\u066B");
+var fa = (s) => String(s).replace(/\d/g, (d) => DIG[d]);
 function fmtCoord(lon, lat) {
   return `${fa(Math.abs(lat).toFixed(2))}\xB0 ${lat >= 0 ? "\u0634\u0645\u0627\u0644\u06CC" : "\u062C\u0646\u0648\u0628\u06CC"}\u060C ${fa(Math.abs(lon).toFixed(2))}\xB0 ${lon >= 0 ? "\u0634\u0631\u0642\u06CC" : "\u063A\u0631\u0628\u06CC"}`;
 }
@@ -1783,24 +1762,24 @@ function createMap(host) {
 
 // virtual:views/command.js
 init_state();
-function setupCommand(form) {
+function setupCommand(form, source) {
   form.innerHTML = `
     <div class="fields">
-      <label>\u0639\u0631\u0636 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC<input id="cmd-lat" inputmode="decimal" autocomplete="off" placeholder="\u0645\u062B\u0644\u0627\u064B \u06F3\u06F2"></label>
-      <label>\u0637\u0648\u0644 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC<input id="cmd-lon" inputmode="decimal" autocomplete="off" placeholder="\u0645\u062B\u0644\u0627\u064B \u06F5\u06F3"></label>
+      <label>\u0639\u0631\u0636 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC<input data-role="lat" inputmode="decimal" autocomplete="off" placeholder="\u0645\u062B\u0644\u0627\u064B \u06F3\u06F2"></label>
+      <label>\u0637\u0648\u0644 \u062C\u063A\u0631\u0627\u0641\u06CC\u0627\u06CC\u06CC<input data-role="lon" inputmode="decimal" autocomplete="off" placeholder="\u0645\u062B\u0644\u0627\u064B \u06F5\u06F3"></label>
       <button class="tool primary" type="submit">\u0631\u0641\u062A\u0646 \u0628\u0647 \u0627\u06CC\u0646 \u0646\u0642\u0637\u0647</button>
     </div>
-    <div class="samples" id="cmd-samples" aria-label="\u0646\u0642\u0627\u0637 \u0646\u0645\u0648\u0646\u0647"></div>\n    
+    <div class="samples" data-role="samples" aria-label="\u0646\u0642\u0627\u0637 \u0646\u0645\u0648\u0646\u0647"></div>\n    
     <div class="quick">
       <button class="tool" type="button" data-nav="globe">\u0646\u0645\u0627\u06CC\u0634 \u0631\u0648\u06CC \u06A9\u0631\u0647\u0654 \u0633\u0647\u200C\u0628\u0639\u062F\u06CC</button>
       <button class="tool" type="button" data-nav="map">\u0646\u0642\u0634\u0647\u0654 \u062F\u0648\u0628\u0639\u062F\u06CC \u062A\u0645\u0627\u0645\u200C\u0635\u0641\u062D\u0647</button>
       <button class="tool" type="button" data-nav="about">\u062F\u0627\u062F\u0647\u200C\u0647\u0627 \u0648 \u0645\u0646\u0627\u0628\u0639</button>
     </div>
-    <div class="err" id="cmd-err" role="alert"></div>`;
-  const lat = form.querySelector("#cmd-lat");
-  const lon = form.querySelector("#cmd-lon");
-  const err = form.querySelector("#cmd-err");
-  const box = form.querySelector("#cmd-samples");
+    <div class="err" data-role="error" role="alert"></div>`;
+  const lat = form.querySelector('[data-role="lat"]');
+  const lon = form.querySelector('[data-role="lon"]');
+  const err = form.querySelector('[data-role="error"]');
+  const box = form.querySelector('[data-role="samples"]');
   const updateCoordinates = () => {
     if (!state.point) return;
     lat.value = fa(state.point.lat.toFixed(4));
@@ -1817,7 +1796,7 @@ function setupCommand(form) {
       lat.value = fa(s.lat);
       lon.value = fa(s.lon);
       err.textContent = "";
-      selectPoint(s.lon, s.lat, "command");
+      selectPoint(s.lon, s.lat, source);
     });
     box.appendChild(b);
   });
@@ -1829,7 +1808,7 @@ function setupCommand(form) {
       return;
     }
     err.textContent = "";
-    selectPoint(lo, la, "command");
+    selectPoint(lo, la, source);
   });
 }
 
@@ -1891,7 +1870,8 @@ var safe = (fn) => {
 };
 document.querySelectorAll("[data-panel]").forEach((el) => safe(() => mountPanel(el)));
 document.querySelectorAll("[data-legend]").forEach((el) => safe(() => mountLegend(el)));
-safe(() => setupCommand($("#cmd-form")));
+safe(() => setupCommand($("#cmd-form-globe"), "globe"));
+safe(() => setupCommand($("#cmd-form-map"), "map"));
 safe(() => renderAbout($("#about-box")));
 safe(() => {
   const chips = $("#home-chips");
@@ -1958,7 +1938,6 @@ function navigate(name, opts = {}) {
   window.scrollTo(0, 0);
   if (name === "globe") enterGlobe();
   if (name === "map") ensureMap("map", "#map-host");
-  if (name === "command") ensureMap("command", "#cmd-host");
 }
 document.addEventListener("click", (e) => {
   const nav = e.target.closest("[data-nav]");
