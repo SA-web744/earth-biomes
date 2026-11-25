@@ -90,7 +90,7 @@ addEventListener('popstate',function(){setTimeout(send,0);});
   </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>کاوشگر زیست‌بوم‌ها | ECOSYSTEM EXPLORER</title>
+<title>کاوشگر زیست‌بوم‌ها | BIOMES EXPLORER</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <style>
@@ -423,7 +423,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
 .tbl{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
 .tbl th,.tbl td{border:1px solid var(--line);padding:6px 10px;text-align:right;vertical-align:top}
 .tbl th{background:rgba(255,255,255,.05)}
-.foot{position:relative;z-index:1;padding:14px 24px 18px;text-align:right;font-size:12.5px;color:var(--mu);border-top:1px solid var(--line);margin-top:8px}
+.foot{position:relative;z-index:1;padding:10px 24px 8px;text-align:right;font-size:12.5px;color:var(--mu);border-bottom:1px solid var(--line);margin:0}
 @media(max-width:900px){
  .top{padding:8px 12px}.view{padding:12px}
  .explore{grid-template-columns:1fr;height:auto;min-height:0}
@@ -436,8 +436,9 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
 </style>
 </head>
 <body>
+<footer class="foot">ستاره اسعدی | نهم2،مدرسه ی حجاب | دبیر: سرکار خانم مهوش معصومی</footer>
 <header class="top">
-  <button class="brand" type="button" data-nav="home"><span class="brand-fa">کاوشگر زیست‌بوم‌ها</span><span class="brand-en">ECOSYSTEM EXPLORER</span></button>
+  <button class="brand" type="button" data-nav="home"><span class="brand-fa">کاوشگر زیست‌بوم‌ها</span><span class="brand-en">BIOMES EXPLORER</span></button>
   <nav aria-label="ناوبری اصلی">
     <button class="link active" type="button" data-nav="home">خانه</button>
     <button class="link" type="button" data-nav="globe">کرهٔ سه‌بعدی</button>
@@ -450,9 +451,9 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   <section class="view" data-view="home">
     <div class="window">
       <div class="chrome"><span class="dot" style="background:#ff5f6d"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#28c840"></span><span class="tab"></span></div>
-      <div class="urlbar"><i></i><span>ecosystem explorer</span><i></i></div>
+      <div class="urlbar"><i></i><span>biome explorer</span><i></i></div>
       <div class="wbody">
-        <div class="en">ECOSYSTEM EXPLORER</div>
+        <div class="en">BIOMES EXPLORER</div>
         <h1>کاوشگر زیست‌بوم‌ها</h1>
         <p class="sub">با کاوش در کره و نقشه، زیست‌بوم هر منطقه را کشف کنید، با ویژگی‌های آب‌وهوایی آن آشنا شوید و جانوران در خطر انقراض و منقرض‌شدهٔ آن منطقه را بشناسید.</p>
         <div class="actions">
@@ -475,9 +476,9 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
         <button class="tool" id="g-out" type="button" aria-label="کوچک‌نمایی">−</button>
       </div>
       <div class="hint">برای انتخاب نقطه، روی کره بزنید یا لمس کنید</div>
-      <div class="msg" id="g-msg" hidden=""><div id="g-msg-text">در حال بارگذاری کرهٔ زمین…</div><div class="row2" id="g-msg-btns" hidden=""><button class="tool primary" id="g-retry" type="button">تلاش دوباره</button><button class="tool" type="button" data-nav="map">رفتن به نقشهٔ دوبعدی</button></div></div>
+      <div class="msg" id="g-msg" hidden=""><div id="g-msg-text">در حال بارگذاری کره ی زمین<br><small>لطفا شکیبا باشید.</small></div><div class="row2" id="g-msg-btns" hidden=""><button class="tool primary" id="g-retry" type="button">تلاش دوباره</button><button class="tool" type="button" data-nav="map">رفتن به نقشهٔ دوبعدی</button></div></div>
     </div>
-    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
+    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا منطقه/زیست بوم دلخواه خود را از بین گزینه ها انتخاب کنید.</div></aside>
   </section>
 
   <section class="view explore" data-view="map" hidden="">
@@ -487,7 +488,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
       <form class="cmd" id="cmd-form-map" aria-label="ورود مختصات و نقاط نمونه" novalidate=""></form>
       <div class="canvas-host" id="map-host"></div>
     </div>
-    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا یکی از پنج زیست‌بوم را از نوار بالا برگزینید.</div></aside>
+    <aside class="panel glass" data-panel=""><div class="note info">یک نقطه را روی کره یا نقشه انتخاب کنید، یا منطقه/زیست بوم دلخواه خود را از بین گزینه ها انتخاب کنید.</div></aside>
   </section>
 
   <section class="view" data-view="about" hidden="">
@@ -550,7 +551,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   </section>
 </main>
 
-<footer class="foot">ستاره اسعدی | نهم2،مدرسه ی حجاب | دبیر: سرکار خانم مهوش معصومی</footer>
+<!-- footer moved above the main navigation -->
 
 <script type="module">
 var __defProp = Object.defineProperty;
@@ -1899,7 +1900,11 @@ function ensureMap(key, hostSel) {
 var withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
 function globeMsg(text, showButtons) {
   $("#g-msg").hidden = false;
-  $("#g-msg-text").textContent = text;
+  if (text === "در حال بارگذاری کره ی زمین") {
+    $("#g-msg-text").innerHTML = "در حال بارگذاری کره ی زمین<br><small>لطفا شکیبا باشید.</small>";
+  } else {
+    $("#g-msg-text").textContent = text;
+  }
   $("#g-msg-btns").hidden = !showButtons;
 }
 async function enterGlobe() {
@@ -1910,7 +1915,7 @@ async function enterGlobe() {
   }
   if (globeLoading) return;
   globeLoading = true;
-  globeMsg("\u062F\u0631 \u062D\u0627\u0644 \u0628\u0627\u0631\u06AF\u0630\u0627\u0631\u06CC \u06A9\u0631\u0647\u0654 \u0632\u0645\u06CC\u0646\u2026", false);
+  globeMsg("در حال بارگذاری کره ی زمین", false);
   try {
     const mod = await withTimeout(Promise.resolve().then(() => (init_globe(), globe_exports)), 2e4);
     globe = await mod.createGlobe($("#globe-host"), { onReady: () => {
