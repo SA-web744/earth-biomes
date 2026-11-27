@@ -433,6 +433,20 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
  .wbody{padding:30px 14px 24px}
  .animals{grid-template-columns:1fr}
 }
+@media(max-width:600px){
+ .stage{height:84vh;min-height:560px}
+ .bar{gap:7px;padding:6px 9px}
+ .legend{gap:4px;padding:5px 8px}
+ .legend .chip{font-size:11px;padding:2px 8px}
+ .cmd{padding:6px 8px;gap:5px}
+ .fields{gap:5px}
+ .fields label{font-size:11px}
+ .fields input{width:112px;padding:4px 8px}
+ .fields .tool,.quick .tool{padding:3px 8px;font-size:11px}
+ .samples,.quick{gap:4px}
+ .samples .chip{font-size:11px;padding:2px 8px}
+ .err{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -1720,9 +1734,10 @@ function createMap(host) {
   function resize() {
     const r = host.getBoundingClientRect();
     if (r.width < 10 || r.height < 10) return;
-    let w = Math.max(r.width - 16, 720);
+    const mobile = window.matchMedia("(max-width: 600px)").matches;
+    let w = mobile ? Math.max(r.width - 16, 1) : Math.max(r.width - 16, 720);
     let h = w / 2;
-    if (r.width - 16 >= 720 && h > r.height - 16) {
+    if (h > r.height - 16) {
       h = r.height - 16;
       w = h * 2;
     }
