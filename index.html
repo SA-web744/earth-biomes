@@ -331,6 +331,7 @@ addEventListener('popstate',function(){setTimeout(send,0);});
 </style>
 
 <style>
+.mobile-bottom-note{display:none}
 :root{--bg:#070b14;--glass:rgba(16,24,42,.68);--line:rgba(120,205,255,.2);--cy:#22e6ff;--tx:#e8f0fc;--mu:#8da0c0;--r:18px}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
@@ -434,6 +435,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
  .animals{grid-template-columns:1fr}
 }
 @media(max-width:600px){
+ .mobile-bottom-note{display:block;margin:0 0 8px;padding:7px 12px;text-align:center;font-style:italic;font-size:12px;color:var(--mu);background:rgba(16,24,42,.68);border:1px solid var(--line);border-radius:10px}
  .stage{height:84vh;min-height:560px}
  .bar{gap:7px;padding:6px 9px}
  .legend{gap:4px;padding:5px 8px}
@@ -480,6 +482,7 @@ input{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radiu
   </section>
 
   <section class="view explore" data-view="globe" hidden="">
+    <div class="mobile-bottom-note">توضیحات پایین صفحه</div>
     <div class="stage glass">
       <div class="bar"><button class="tool" type="button" data-back="">بازگشت ›</button><strong>کرهٔ زمین سه‌بعدی</strong><span class="sp"></span><button class="tool" type="button" data-nav="map">نقشهٔ دوبعدی</button></div>
       <div class="legend" data-legend=""><button type="button" class="chip"><i style="background:#e6f4ff"></i>توندرا</button><button type="button" class="chip"><i style="background:#2fa36b"></i>تایگا</button><button type="button" class="chip"><i style="background:#12a84a"></i>جنگل‌های بارانی استوایی</button><button type="button" class="chip"><i style="background:#e0b043"></i>ساوان</button><button type="button" class="chip"><i style="background:#e4be78"></i>بیابان</button><button type="button" class="chip">پاک‌کردن انتخاب</button></div>
